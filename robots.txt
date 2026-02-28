@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Allow: /*.html$
+Allow: /Images/
+Allow: /css/
+Allow: /js/
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /server.js
+Disallow: /*?utm_
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Specify the sitemap location
+Sitemap: https://caabrs.cl/sitemap.xml

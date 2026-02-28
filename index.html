@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAA BRS - Centro de Alumnos | British Royal School</title>
+    <meta name="description" content="Portal del Centro de Alumnos del British Royal School (BRS). Accede a propuestas, calendario de eventos, galería de fotos y más información del CAA BRS 2026.">
+    <meta name="keywords" content="CAA BRS, Centro de Alumnos, British Royal School, portal estudiantil, eventos BRS, calendario escolar">
+    <meta name="language" content="es">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://caabrs.cl/">
+    <meta property="og:title" content="CAA BRS - Centro de Alumnos | British Royal School">
+    <meta property="og:description" content="Portal del Centro de Alumnos del British Royal School. Propuestas, calendario, galería y más.">
+    <meta property="og:image" content="https://caabrs.cl/Images/Logo.png">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://caabrs.cl/">
+    <meta property="twitter:title" content="CAA BRS - Centro de Alumnos">
+    <meta property="twitter:description" content="Portal del Centro de Alumnos del British Royal School.">
+    <meta property="twitter:image" content="https://caabrs.cl/Images/Logo.png">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://caabrs.cl/">
+    <!-- Alternate links for hreflang (if multilingual) -->
+    <link rel="alternate" hreflang="es" href="https://caabrs.cl/">
+    <link rel="alternate" hreflang="x-default" href="https://caabrs.cl/">
+    <link rel="icon" href="Images/Logo.png" type="image/png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#630F16">
+    <meta name="application-name" content="CAA BRS">
+    <meta name="apple-mobile-web-app-title" content="CAA BRS">
+    <!-- JSON-LD Schema for better SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Centro de Alumnos BRS",
+        "alternateName": "CAA BRS",
+        "url": "https://caabrs.cl",
+        "logo": "https://caabrs.cl/Images/Logo.png",
+        "description": "Portal del Centro de Alumnos del British Royal School",
+        "sameAs": [
+            "https://www.instagram.com/caa_brs",
+            "https://www.facebook.com/caabrs"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+56-2-XXXX-XXXX",
+            "contactType": "Customer Service"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "CL",
+            "addressRegion": "Metropolitana",
+            "streetAddress": "British Royal School, Santiago"
+        }
+    }
+    </script>
+    <!-- Precargar imágenes críticas del carrusel -->
+    <link rel="preload" href="/Images/Galeria/DiadelAlumno1.webp" as="image">
+    <link rel="preload" href="/Images/Galeria/IMG_4210.webp" as="image">
+    <!-- Precargar fuentes locales si existen -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <!-- Tailwind CSS compilado localmente (previamente era CDN) -->
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <!-- Librerías de seguridad: CryptoJS eliminado por no utilizarse -->
+    <script>
+        // ========================================
+        // SISTEMA DE SEGURIDAD Y CIFRADO
+        // ========================================
+    </script>
+    <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        .sidebar-link {
+            transition: all 0.3s ease;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            margin-left: -1.5rem;
+            margin-right: -1.5rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            border-radius: 0;
+        }
+        
+        .sidebar-link:hover,
+        .sidebar-link:focus-visible {
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+        }
+        
+        .sidebar-link:active {
+            background: rgba(227, 29, 35, 0.2);
+        }
+        
+        .sidebar-link.active {
+            background: rgba(227, 29, 35, 0.15);
+        }
+        
+        .banner-bg {
+            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .banner-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(99, 15, 22, 0.85) 0%, rgba(99, 15, 22, 0.7) 100%);
+            backdrop-filter: blur(2px);
+        }
+
+        .lightbox-flex:not(.hidden) {
+            display: flex;
+        }
+        
+        button, a[href] {
+            min-height: 44px;
+            min-width: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+        }
+        
+        input, textarea, select {
+            font-size: 16px;
+            min-height: 44px;
+            padding: 12px;
+            border-radius: 8px;
+        }
+        
+        /* Optimizaciones para móvil */
+        @media (max-width: 768px) {
+            /* Desabilitar transitions complejas en móvil para mejor performance */
+            * {
+                animation-duration: 0.2s !important;
+            }
+            
+            /* Reducir backdrop blur en móvil */
+            header {
+                backdrop-filter: blur(0px) !important;
+            }
+            
+            /* Reducir padding en móvil */
+            .banner-bg::before {
+                backdrop-filter: none;
+            }
+        }
+        
+        #hamburger-toggle {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            aside {
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 100vh;
+                width: 85vw;
+                max-width: 280px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+                overflow-y: auto;
+            }
+            
+            aside.open {
+                transform: translateX(0);
+            }
+            
+            aside::-webkit-scrollbar {
+                width: 6px;
+            }
+            
+            aside::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+            }
+            
+            aside::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 3px;
+            }
+            
+            main {
+                margin-left: 0 !important;
+            }
+            
+            header {
+                padding: 0.75rem 0.875rem !important;
+                gap: 0.25rem !important;
+                min-height: 56px;
+            }
+            
+            header > div:last-child {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            #hamburger-toggle {
+                display: flex;
+                background: none;
+                border: none;
+                color: #630F16;
+                cursor: pointer;
+                padding: 8px;
+                margin-right: auto;
+                min-width: 44px;
+                min-height: 44px;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            header > div:first-child {
+                display: none;
+            }
+            
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 40;
+            }
+            
+            .sidebar-overlay.open {
+                display: block;
+            }
+            
+            header {
+                flex-wrap: wrap;
+                flex-direction: row;
+            }
+            
+            header .flex:first-child {
+                order: 2;
+                width: 100%;
+            }
+            
+            .breadcrumb-section {
+                font-size: 0.875rem;
+            }
+            
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .p-8 {
+                padding: 1rem !important;
+            }
+            
+            .px-8,
+            .py-8 {
+                padding: 1rem !important;
+            }
+            
+            h2 {
+                font-size: 1.5rem !important;
+                line-height: 1.3;
+            }
+            
+            h3 {
+                font-size: 1.25rem !important;
+                line-height: 1.3;
+            }
+            
+            h4 {
+                font-size: 1.05rem !important;
+            }
+            
+            .flex-wrap {
+                flex-direction: column !important;
+                gap: 1rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            input, textarea, select {
+                width: 100% !important;
+                min-height: 44px !important;
+            }
+            
+            table {
+                font-size: 0.875rem;
+            }
+            
+            th, td {
+                padding: 0.75rem 0.5rem !important;
+            }
+            
+            .space-y-6 > * + * {
+                margin-top: 1rem !important;
+            }
+            
+            .gap-4 {
+                gap: 1rem !important;
+            }
+            
+            .gap-6 {
+                gap: 1.5rem !important;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            aside {
+                width: 200px;
+            }
+            
+            main {
+                margin-left: 200px;
+            }
+            
+            .p-8 {
+                padding: 1.5rem;
+            }
+            
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            aside {
+                width: 256px;
+            }
+            
+            main {
+                margin-left: 256px;
+            }
+        }
+        
+        /* Optimizaciones para touch */
+        @media (hover: none) {
+            button:hover,
+            a:hover {
+                background-color: inherit;
+            }
+            
+            button:active,
+            a:active {
+                opacity: 0.8;
+            }
+        }
+        
+        /* Modal Popup */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #10B981;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: scaleIn 0.5s ease;
+        }
+        
+        @keyframes scaleIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        /* Accesibilidad: enlace para saltar al contenido */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .skip-link:focus {
+            position: fixed;
+            left: 1rem;
+            top: 1rem;
+            width: auto;
+            height: auto;
+            padding: 0.5rem 0.75rem;
+            background: #630F16;
+            color: #fff;
+            border-radius: 0.5rem;
+            z-index: 10000;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="font-sans bg-background min-h-screen">
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Modal Popup para confirmación de envío -->
+    <div id="modalPopup" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalMessage">
+        <div class="modal-content" tabindex="-1">
+            <div class="success-icon">
+                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 id="modalTitle" class="text-2xl font-bold text-gray-800 mb-2">¡Mensaje Enviado!</h3>
+            <p id="modalMessage" class="text-gray-600 mb-4">Tu mensaje ha sido enviado exitosamente.</p>
+            <button id="modalCloseBtn" onclick="cerrarModal()" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-semibold transition-all">
+                Cerrar
+            </button>
+        </div>
+    </div>
+    
+    <!-- Sidebar Overlay -->
+    <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+    <!-- Región en vivo accesible para mensajes -->
+    <div id="aria-live" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Modal de Galería Completa -->
+    <div id="galleryModal" class="fixed inset-0 bg-black/95 z-50 hidden overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="galleryModalTitle">
+        <div class="min-h-screen px-4 py-8">
+            <!-- Header del modal -->
+            <div class="max-w-7xl mx-auto mb-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 id="galleryModalTitle" class="text-2xl md:text-3xl font-bold text-white">📸 Galería Completa</h2>
+                        <p class="text-white/70 text-sm mt-1">Todas las fotos del Centro de Alumnos</p>
+                    </div>
+                    <button onclick="closeGalleryModal()" class="text-white/80 hover:text-white transition-colors p-2" aria-label="Cerrar galería">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid de fotos -->
+            <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Foto 1 -->
+                <div class="group relative aspect-square rounded-lg overflow-hidden cursor-pointer" onclick="openLightbox(0)">
+                    <img src="/Images/Galeria/DiadelAlumno1.webp" srcset="/Images/Galeria/DiadelAlumno1-mobile.webp 600w, /Images/Galeria/DiadelAlumno1-tablet.webp 900w, /Images/Galeria/DiadelAlumno1.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" alt="Foto galería" width="400" height="400" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"/>
+                </div>
+
+                <!-- Placeholders para más fotos -->
+                <div class="aspect-square rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                    <div class="text-center">
+                        <svg class="w-12 h-12 text-white/40 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <p class="text-white/60 text-xs">Próximamente</p>
+                    </div>
+                </div>
+
+                <div class="aspect-square rounded-lg bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+                    <div class="text-center">
+                        <svg class="w-12 h-12 text-white/40 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <p class="text-white/60 text-xs">Más fotos pronto</p>
+                    </div>
+                </div>
+
+                <div class="aspect-square rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
+                    <div class="text-center">
+                        <svg class="w-12 h-12 text-white/40 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                        </svg>
+                        <p class="text-white/60 text-xs">En proceso</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info adicional -->
+            <div class="max-w-7xl mx-auto mt-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+                    <p class="text-white/80 text-sm">
+                        <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Estamos agregando más fotos de nuestras actividades. ¡Vuelve pronto!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox para ver fotos en grande -->
+    <div id="lightbox" class="fixed inset-0 bg-black/98 z-[60] hidden lightbox-flex items-center justify-center" onclick="closeLightbox()">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors p-2 z-10" aria-label="Cerrar">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+        <button onclick="prevLightboxImage(event)" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors p-3 bg-black/50 rounded-full" aria-label="Anterior">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+        </button>
+        <button onclick="nextLightboxImage(event)" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors p-3 bg-black/50 rounded-full" aria-label="Siguiente">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+        </button>
+        <div class="max-w-6xl max-h-[90vh] p-4" onclick="event.stopPropagation()">
+            <img id="lightboxImage" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"/>
+            <p id="lightboxCaption" class="text-white text-center mt-4 text-lg"></p>
+        </div>
+    </div>
+    
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-primary shadow-xl z-50 flex flex-col overflow-hidden" id="sidebar" aria-label="Barra lateral de navegación">
+        <!-- Logo Section -->
+        <div class="p-6 border-b border-white/10 flex-shrink-0">
+            <div class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition-opacity" id="logoClick">
+                <img src="Images/Logo.png" alt="Logo" width="64" height="64" class="w-16 h-16 object-contain">
+                <div>
+                    <h1 class="text-gold font-bold text-xl tracking-wide">CAA BRS</h1>
+                    <p class="text-white/60 text-xs">Centro de Alumnos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="flex-1 py-6 px-6 overflow-y-auto" role="navigation" aria-label="Navegación principal">
+            <ul class="space-y-1">
+                <li>
+                    <a href="#inicio" class="sidebar-link active flex items-center gap-4 py-3 text-white/90 hover:text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                        <span class="font-medium">Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#galeria" class="sidebar-link flex items-center gap-4 py-3 text-white/70 hover:text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <span class="font-medium">Galería</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#calendario" class="sidebar-link flex items-center gap-4 py-3 text-white/70 hover:text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <span class="font-medium">Calendario</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#intercurso" class="sidebar-link flex items-center gap-4 py-3 text-white/70 hover:text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        <span class="font-medium">Intercurso</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#nuestras-propuestas" class="sidebar-link flex items-center gap-4 py-3 text-white/70 hover:text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        <span class="font-medium">Nuestras Propuestas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#propuestas" class="sidebar-link flex items-center gap-4 py-3 text-white/70 hover:text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                        <span class="font-medium">Enviar Propuesta</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="cuentas-claras.html" class="sidebar-link flex items-center gap-4 py-3 text-white/70 hover:text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                        <span class="font-medium">Cuentas Claras</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Footer -->
+        <div class="p-6 border-t border-white/10 flex-shrink-0 bg-primary">
+            <p class="text-white/40 text-xs text-center">© 2026 CAA BRS</p>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 min-h-screen" id="main-content" tabindex="-1">
+        <!-- Top Bar -->
+        <header class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-40 px-4 md:px-8 py-3 md:py-4 flex justify-between items-center">
+            <button id="hamburger-toggle" class="md:hidden" aria-controls="sidebar" aria-expanded="false" aria-label="Abrir menú de navegación">
+                <svg class="w-6 h-6 text-primary" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+            <div class="flex items-center gap-2 text-xs text-gray-500">
+                <span>CAA BRS 2026</span>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="p-4 md:p-6 lg:p-8">
+            <!-- Welcome Banner -->
+            <section id="inicio" class="relative rounded-2xl overflow-hidden shadow-xl mb-10 banner-bg">
+                <div class="relative z-10 px-4 md:px-8 lg:px-10 py-12 md:py-16 lg:py-24">
+                    <div class="max-w-2xl">
+                        <span class="inline-block bg-gold/20 text-gold px-3 md:px-4 py-1 rounded-full text-xs md:text-sm font-medium mb-4">
+                            Bienvenidos
+                        </span>
+                        <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                            Centro de Alumnos<br/>
+                            <span class="text-gold">BRS 2026</span>
+                        </h2>
+                        <p class="text-white/80 text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
+                            Unidos construimos una comunidad escolar más fuerte. 
+                            Participa, propone y sé parte del cambio que queremos ver.
+                        </p>
+                        <div class="flex flex-col md:flex-row gap-3 md:gap-4">
+                            <a href="#nuestras-propuestas" class="bg-accent hover:bg-accent/90 text-white px-6 md:px-8 py-3 rounded-lg font-semibold shadow-lg transition-all hover:scale-105 text-center text-sm md:text-base">
+                                Ver Propuestas
+                            </a>
+                            <a href="#calendario" class="bg-white/10 hover:bg-white/20 text-white px-6 md:px-8 py-3 rounded-lg font-semibold backdrop-blur-sm border border-white/20 transition-all text-center text-sm md:text-base">
+                                Calendario
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photo Gallery - Google Photos Integration -->
+
+            <section id="galeria" class="mb-10">
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-gray-100">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-primary">📸 Galería de Fotos</h3>
+                            <p class="text-gray-500 mt-1">Momentos destacados de nuestra comunidad</p>
+                        </div>
+                    </div>
+
+                    <!-- Carrusel de fotos -->
+                    <div class="relative">
+                        <!-- Contenedor del carrusel -->
+                        <div class="overflow-hidden rounded-xl">
+                            <div id="carouselTrack" class="flex gap-4 transition-transform duration-500 ease-in-out">
+                                <!-- Las fotos se cargan dinámicamente aquí -->
+                            </div>
+                        </div>
+
+                        <!-- Controles del carrusel -->
+                        <button id="prevSlide" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 md:p-3 rounded-full shadow-lg transition-all hover:scale-110 z-10" aria-label="Anterior">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                        </button>
+                        <button id="nextSlide" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 md:p-3 rounded-full shadow-lg transition-all hover:scale-110 z-10" aria-label="Siguiente">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Calendario Section - Google Calendar Integration -->
+            <section id="calendario" class="mb-10">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-primary">📅 Calendario de Eventos</h3>
+                        <p class="text-gray-500 mt-1">Próximas actividades y eventos del CAA BRS</p>
+                    </div>
+                </div>
+
+                <div id="calendarInstructions" class="hidden bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div class="text-sm text-blue-800">
+                            <p class="font-semibold mb-1">💡 Información:</p>
+                            <ul class="list-disc list-inside space-y-1 text-xs">
+                                <li>Haz clic en "Ver calendario" para abrir Google Calendar</li>
+                                <li>Puedes ver todos los eventos compartidos aquí</li>
+                                <li>Los cambios en el calendario se reflejan automáticamente</li>
+                                <li>Suscríbete al calendario para recibir notificaciones</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Calendar Embed -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <!-- Vista Desktop -->
+                    <div class="hidden md:block relative min-h-[600px]">
+                        <div id="calendarLoading" class="absolute inset-0 flex items-center justify-center bg-gray-50 rounded-xl z-10">
+                            <div class="text-center">
+                                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+                                <p class="text-gray-600 font-medium">Cargando calendario...</p>
+                                <p class="text-gray-400 text-sm mt-2">Si no carga, verifica que el calendario esté público</p>
+                            </div>
+                        </div>
+                        <iframe id="googleCalendarDesktop" title="Calendario de Google - vista mensual (es-CL)" loading="lazy"
+                            style="border: 0" 
+                                width="100%" 
+                                height="600" 
+                                frameborder="0" 
+                                scrolling="no"
+                                class="rounded-xl relative z-20"
+                                allow="geolocation"
+                                onload="console.log('✅ Desktop iframe cargado'); document.getElementById('calendarLoading')?.remove()">
+                        </iframe>
+                    </div>
+                    
+                    <!-- Vista Mobile (Agenda compacta) -->
+                    <div class="block md:hidden relative min-h-[500px]">
+                        <div id="calendarLoadingMobile" class="absolute inset-0 flex items-center justify-center bg-gray-50 rounded-xl z-10">
+                            <div class="text-center">
+                                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+                                <p class="text-gray-600 font-medium">Cargando calendario...</p>
+                                <p class="text-gray-400 text-sm mt-2">Si no carga, verifica que el calendario esté público</p>
+                            </div>
+                        </div>
+                        <iframe id="googleCalendarMobile" title="Calendario de Google - vista mensual móvil (es-CL)" loading="lazy"
+                            style="border: 0" 
+                                width="100%" 
+                                height="500" 
+                                frameborder="0" 
+                                scrolling="yes"
+                                class="rounded-xl relative z-20"
+                                onload="console.log('✅ Mobile iframe cargado'); document.getElementById('calendarLoadingMobile')?.remove()">
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Intercurso Results Table -->
+            <section id="intercurso" class="mb-10">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-3">
+                    <div>
+                        <h3 class="text-2xl font-bold text-primary">Resultados Intercurso</h3>
+                        <p class="text-gray-500 mt-1 text-sm">Tabla de posiciones actualizada</p>
+                    </div>
+                    <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1 whitespace-nowrap">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        En desarrollo
+                    </span>
+                </div>
+                <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <!-- Overlay con mensaje -->
+                    <div class="absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-br from-primary/95 to-accent/95 backdrop-blur-sm">
+                        <div class="text-center px-6 py-8">
+                            <div class="inline-flex items-center justify-center w-20 h-20 bg-white/10 rounded-full mb-4 backdrop-blur-md">
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl md:text-3xl font-bold text-white mb-3">Funcionalidad en Desarrollo</h4>
+                            <p class="text-white/90 text-sm md:text-base max-w-md leading-relaxed">
+                                Estamos trabajando en esta sección para brindarte la mejor experiencia.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Contenido con blur -->
+                    <div class="blur-sm pointer-events-none select-none overflow-x-auto">
+                        <table class="w-full min-w-max">
+                            <thead>
+                                <tr class="bg-primary text-white">
+                                    <th class="px-3 md:px-6 py-3 md:py-4 text-left font-semibold text-sm md:text-base">Lugar</th>
+                                    <th class="px-3 md:px-6 py-3 md:py-4 text-left font-semibold text-sm md:text-base">Curso</th>
+                                    <th class="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-sm md:text-base">PJ</th>
+                                    <th class="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-sm md:text-base">Pts</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr class="hover:bg-gold/5 transition-colors">
+                                    <td class="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base">
+                                        <div class="flex items-center gap-1 md:gap-2">
+                                            <span class="w-7 h-7 md:w-8 md:h-8 bg-gold/20 text-gold rounded-full flex items-center justify-center font-bold text-xs md:text-sm">1</span>
+                                            <svg class="w-4 h-4 md:w-5 md:h-5 text-gold hidden md:inline" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                                            </svg>
+                                        </div>
+                                    </td>
+                                    <td class="px-3 md:px-6 py-3 md:py-4 font-semibold text-gray-800 text-sm md:text-base">4° M A</td>
+                                    <td class="px-3 md:px-6 py-3 md:py-4 text-center text-gray-600 text-sm md:text-base">8</td>
+                                    <td class="px-3 md:px-6 py-3 md:py-4 text-center text-sm md:text-base">
+                                        <span class="bg-gold/20 text-primary font-bold px-2 md:px-4 py-1 rounded-full text-xs md:text-sm">24</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-8 h-8 bg-gray-200 text-gray-600 rounded-full flex items-center justify-center font-bold text-sm">2</span>
+                                            <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                                            </svg>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 font-semibold text-gray-800">3° Medio B</td>
+                                    <td class="px-6 py-4 text-center text-gray-600">8</td>
+                                    <td class="px-6 py-4 text-center">
+                                        <span class="bg-gray-100 text-gray-700 font-bold px-4 py-1 rounded-full">21</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-8 h-8 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center font-bold text-sm">3</span>
+                                            <svg class="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                                            </svg>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 font-semibold text-gray-800">4° Medio B</td>
+                                    <td class="px-6 py-4 text-center text-gray-600">8</td>
+                                    <td class="px-6 py-4 text-center">
+                                        <span class="bg-gray-100 text-gray-700 font-bold px-4 py-1 rounded-full">19</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <span class="w-8 h-8 bg-gray-100 text-gray-500 rounded-full flex items-center justify-center font-bold text-sm">4</span>
+                                    </td>
+                                    <td class="px-6 py-4 font-semibold text-gray-800">2° Medio A</td>
+                                    <td class="px-6 py-4 text-center text-gray-600">8</td>
+                                    <td class="px-6 py-4 text-center">
+                                        <span class="bg-gray-100 text-gray-700 font-bold px-4 py-1 rounded-full">17</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <span class="w-8 h-8 bg-gray-100 text-gray-500 rounded-full flex items-center justify-center font-bold text-sm">5</span>
+                                    </td>
+                                    <td class="px-6 py-4 font-semibold text-gray-800">1° Medio C</td>
+                                    <td class="px-6 py-4 text-center text-gray-600">8</td>
+                                    <td class="px-6 py-4 text-center">
+                                        <span class="bg-gray-100 text-gray-700 font-bold px-4 py-1 rounded-full">15</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <span class="w-8 h-8 bg-gray-100 text-gray-500 rounded-full flex items-center justify-center font-bold text-sm">6</span>
+                                    </td>
+                                    <td class="px-6 py-4 font-semibold text-gray-800">3° Medio A</td>
+                                    <td class="px-6 py-4 text-center text-gray-600">8</td>
+                                    <td class="px-6 py-4 text-center">
+                                        <span class="bg-gray-100 text-gray-700 font-bold px-4 py-1 rounded-full">12</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nuestras Propuestas (CAA BRS 2026) -->
+            <section id="nuestras-propuestas" class="mb-10">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-primary">Nuestras Propuestas 2026</h3>
+                        <p class="text-gray-500 mt-1">Iniciativas del Centro de Alumnos</p>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-primary/5 via-white to-accent/5 rounded-2xl shadow-lg p-6 md:p-8 border border-primary/10">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold text-primary mb-3">Nuestras Propuestas 2026</h3>
+                        <p class="text-gray-700">Iremos publicando cada propuesta como tarjeta para que sea clara y fácil de revisar.</p>
+                    </div>
+                    <div id="proposalsCards" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+                </div>
+            </section>
+
+            <!-- Sección Pública de Propuestas -->
+            <section id="propuestas" class="mb-10">
+                <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="text-center mb-8">
+                            <h3 class="text-3xl font-bold text-primary mb-3">Envía tu Propuesta</h3>
+                            <p class="text-gray-600">Tu voz importa. Comparte tus ideas para mejorar nuestra comunidad escolar.</p>
+                        </div>
+
+                        <!-- Formulario de propuestas -->
+                        <form id="formPropuesta" class="space-y-6">
+                            <div>
+                                <label for="propuestaTitulo" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Título de la propuesta <span class="text-red-500">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="propuestaTitulo" 
+                                    name="titulo"
+                                    required
+                                    placeholder="Ej: Mejorar el sistema de reciclaje"
+                                    class="w-full px-4 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent min-h-11"
+                                />
+                            </div>
+
+                            <div>
+                                <label for="propuestaDescripcion" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Descripción <span class="text-red-500">*</span>
+                                </label>
+                                <textarea 
+                                    id="propuestaDescripcion" 
+                                    name="descripcion"
+                                    required
+                                    rows="5"
+                                    placeholder="Describe tu propuesta en detalle..."
+                                    class="w-full px-4 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none min-h-11"
+                                ></textarea>
+                                <p class="mt-1 text-xs text-gray-500">Usa el formato de viñetas para organizar mejor tu propuesta</p>
+                            </div>
+
+                            <div>
+                                <label for="propuestaAutor" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Tu nombre (opcional)
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="propuestaAutor" 
+                                    name="autor"
+                                    placeholder="Ej: María González"
+                                    class="w-full px-4 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent min-h-11"
+                                />
+                            </div>
+
+                            <div>
+                                <label for="propuestaCurso" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Curso (opcional)
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="propuestaCurso" 
+                                    name="curso"
+                                    placeholder="Ej: 3° Medio A"
+                                    class="w-full px-4 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent min-h-11"
+                                />
+                            </div>
+
+                            <!-- FormSubmit Configuration -->
+                            <input type="hidden" name="_subject" value="Nueva Propuesta del Portal CAA BRS">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+
+                            <div class="flex gap-3 flex-col sm:flex-row">
+                                <button 
+                                    type="button"
+                                    onclick="enviarPropuesta()"
+                                    class="flex-1 bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-all shadow-lg min-h-11"
+                                >
+                                    Enviar Propuesta
+                                </button>
+                                <button 
+                                    type="reset" 
+                                    class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all min-h-11"
+                                >
+                                    Limpiar
+                                </button>
+                            </div>
+                        </form>
+
+                        <div id="propuestaMessage" class="mt-4 hidden"></div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 mt-10 px-8 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 Centro de Alumnos BRS. Todos los derechos reservados.</p>
+                <div class="flex items-center gap-4">
+                    <a href="https://www.instagram.com/caa_brs/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent transition-colors" aria-label="Instagram">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    
+
+    <script>
+        // Mobile menu toggle
+        const hamburgerToggle = document.getElementById('hamburger-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+            sidebarOverlay.classList.toggle('open');
+            const expanded = sidebar.classList.contains('open');
+            const toggles = document.querySelectorAll('[aria-controls="sidebar"]');
+            toggles.forEach(btn => btn.setAttribute('aria-expanded', String(expanded)));
+            if (expanded) {
+                sidebar.setAttribute('tabindex', '-1');
+                sidebar.focus();
+            } else {
+                sidebar.removeAttribute('tabindex');
+            }
+        }
+        
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('open');
+            const toggles = document.querySelectorAll('[aria-controls="sidebar"]');
+            toggles.forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+        }
+        
+        hamburgerToggle?.addEventListener('click', toggleSidebar);
+        sidebarOverlay?.addEventListener('click', closeSidebar);
+        
+        // El logo ya no despliega opciones; no se requiere manejador adicional
+        
+        // Close sidebar when clicking on a link
+        document.querySelectorAll('aside a').forEach(link => {
+            link.addEventListener('click', closeSidebar);
+        });
+        
+        // Close sidebar on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeSidebar();
+            }
+        });
+        
+        // Auto-open sidebar on mobile on page load
+        if (window.innerWidth <= 768) {
+            sidebar.classList.add('open');
+            sidebarOverlay.classList.add('open');
+            const toggles = document.querySelectorAll('[aria-controls="sidebar"]');
+            toggles.forEach(btn => btn.setAttribute('aria-expanded', 'true'));
+        }
+
+        // Scroll spy: actualizar link activo de la barra lateral según sección visible
+        const sidebarSectionLinks = Array.from(document.querySelectorAll('aside a.sidebar-link[href^="#"]'));
+        const sectionTargets = sidebarSectionLinks
+            .map(link => {
+                const target = document.querySelector(link.getAttribute('href'));
+                return target ? { link, target } : null;
+            })
+            .filter(Boolean);
+
+        function setActiveSidebarLink(targetId) {
+            sidebarSectionLinks.forEach(link => {
+                const isActive = link.getAttribute('href') === `#${targetId}`;
+                link.classList.toggle('active', isActive);
+                link.classList.toggle('text-white/90', isActive);
+                link.classList.toggle('text-white/70', !isActive);
+            });
+        }
+
+        function updateActiveSidebarByScroll() {
+            if (!sectionTargets.length) return;
+
+            const markerY = window.innerHeight * 0.32;
+            let activeId = sectionTargets[0].target.id;
+
+            sectionTargets.forEach(({ target }) => {
+                const rect = target.getBoundingClientRect();
+                if (rect.top <= markerY) {
+                    activeId = target.id;
+                }
+            });
+
+            const nearPageBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+            if (nearPageBottom) {
+                activeId = sectionTargets[sectionTargets.length - 1].target.id;
+            }
+
+            setActiveSidebarLink(activeId);
+        }
+
+        let sidebarScrollTicking = false;
+        function onSidebarScrollSpy() {
+            if (sidebarScrollTicking) return;
+            sidebarScrollTicking = true;
+            requestAnimationFrame(() => {
+                updateActiveSidebarByScroll();
+                sidebarScrollTicking = false;
+            });
+        }
+
+        sidebarSectionLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const targetId = link.getAttribute('href')?.replace('#', '');
+                if (targetId) setActiveSidebarLink(targetId);
+            });
+        });
+
+        window.addEventListener('scroll', onSidebarScrollSpy, { passive: true });
+        window.addEventListener('resize', onSidebarScrollSpy);
+        window.addEventListener('hashchange', onSidebarScrollSpy);
+        updateActiveSidebarByScroll();
+        
+        // Validar formato de email (se mantiene para formularios públicos y de usuarios)
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Portal público sin sistema de permisos - todo es accesible
+
+        // ========================================
+        // FUNCIONES PRINCIPALES
+        // ========================================
+
+        // Inicializar almacenamiento local
+        function initStorage() {
+            if (!localStorage.getItem('gallery')) localStorage.setItem('gallery', JSON.stringify([]));
+            if (!localStorage.getItem('propuestas')) localStorage.setItem('propuestas', JSON.stringify([]));
+            if (!localStorage.getItem('contactMessages')) localStorage.setItem('contactMessages', JSON.stringify([]));
+        }
+
+
+
+        // Cargar galería pública
+        function loadPublicGallery() {
+            const gallery = JSON.parse(localStorage.getItem('gallery') || '[]');
+            const container = document.querySelector('#galeria .grid');
+            
+            if (!container) return;
+
+            const publicImages = gallery.slice(0, 4); // Mostrar solo las últimas 4
+            
+            publicImages.forEach((img, index) => {
+                const imgElement = container.children[index];
+                if (imgElement) {
+                    const imgTag = imgElement.querySelector('img');
+                    const titleTag = imgElement.querySelector('span');
+                    if (imgTag) imgTag.src = img.url;
+                    if (titleTag) titleTag.textContent = img.title;
+                }
+            });
+        }
+
+
+
+        // ========================================
+        // CALENDARIO DE GOOGLE - CONFIGURACIÓN
+        // ========================================
+        
+        // Configuración del calendario
+        const CALENDAR_EMAIL = 'calendariocaabrs@gmail.com';
+        const CALENDAR_URL = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(CALENDAR_EMAIL)}&ctz=America%2FSantiago&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0&wkst=2&bgcolor=%23ffffff&color=%238B1538`;
+        
+        console.log('📅 Inicializando calendario:', CALENDAR_EMAIL);
+        console.log('🔗 URL:', CALENDAR_URL);
+
+        // Inicializar calendarios de Google (se carga solo cuando es visible)
+        let calendarLoaded = false;
+        
+        function initializeGoogleCalendar() {
+            if (calendarLoaded) return; // Evitar carga doble
+            
+            console.log('▶️ Ejecutando initializeGoogleCalendar...');
+            
+            try {
+                const desktopIframe = document.getElementById('googleCalendarDesktop');
+                const mobileIframe = document.getElementById('googleCalendarMobile');
+                
+                if (desktopIframe && !desktopIframe.src) {
+                    desktopIframe.src = CALENDAR_URL;
+                    console.log('✅ Desktop iframe configurado');
+                }
+                
+                if (mobileIframe && !mobileIframe.src) {
+                    mobileIframe.src = CALENDAR_URL;
+                    console.log('✅ Mobile iframe configurado');
+                }
+
+                console.log('✅ Calendario inicializado exitosamente');
+                return true;
+            } catch (error) {
+                console.error('❌ Error al inicializar calendario:', error);
+                return false;
+            }
+        }
+
+        // ========================================
+        // RENDERIZAR CALENDARIO GOOGLE
+        // ========================================
+        // El calendario se maneja completamente a través de Google Calendar
+
+        // Mostrar notificación (con anuncio en aria-live)
+        function showNotification(message, type = 'info') {
+            const colors = {
+                success: 'bg-green-500',
+                error: 'bg-red-500',
+                info: 'bg-blue-500'
+            };
+
+            const toast = document.createElement('div');
+            toast.className = `fixed top-6 right-6 ${colors[type]} text-white px-6 py-4 rounded-lg shadow-2xl z-[200] flex items-center gap-3`;
+            toast.innerHTML = `
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span>${message}</span>
+            `;
+            document.body.appendChild(toast);
+            const live = document.getElementById('aria-live');
+            if (live) live.textContent = message;
+            
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // Inicializar al cargar página
+        window.addEventListener('DOMContentLoaded', () => {
+            initStorage();
+        });
+
+        // ================== PROPUESTAS ==================
+        
+        // Enviar propuesta desde el formulario público
+        function enviarPropuesta() {
+            const titulo = document.getElementById('propuestaTitulo').value.trim();
+            const descripcion = document.getElementById('propuestaDescripcion').value.trim();
+            const autor = document.getElementById('propuestaAutor').value.trim() || 'Anónimo';
+            const curso = document.getElementById('propuestaCurso').value.trim() || 'No especificado';
+            
+            // Validar campos obligatorios
+            if (!titulo || !descripcion) {
+                mostrarPopup('Error', 'Por favor completa los campos obligatorios: Título y Descripción', false);
+                return false;
+            }
+            
+            console.log('📝 Enviando propuesta:', {titulo, descripcion, autor, curso});
+            
+            // Guardar en localStorage
+            const propuesta = {
+                id: Date.now(),
+                titulo,
+                descripcion,
+                autor,
+                curso,
+                fecha: new Date().toISOString(),
+                estado: 'pendiente'
+            };
+            
+            const propuestas = JSON.parse(localStorage.getItem('propuestas') || '[]');
+            propuestas.push(propuesta);
+            localStorage.setItem('propuestas', JSON.stringify(propuestas));
+            console.log('✅ Propuesta guardada en localStorage');
+            
+            // Preparar formulario para FormSubmit
+            const formData = new FormData();
+            formData.append('titulo', titulo);
+            formData.append('descripcion', descripcion);
+            formData.append('autor', autor);
+            formData.append('curso', curso);
+            formData.append('_subject', `Nueva Propuesta: ${titulo}`);
+            formData.append('_captcha', 'false');
+            formData.append('_template', 'table');
+            formData.append('mensaje', `TÍTULO: ${titulo}\n\nDESCRIPCIÓN:\n${descripcion}\n\nAUTOR: ${autor}\nCURSO: ${curso}\nFECHA: ${new Date().toLocaleString('es-CL')}`);
+            
+            console.log('📧 Enviando correo a FormSubmit...');
+            console.log('📧 Email destino: misla@alumnos.brs.cl');
+            
+            // Enviar a FormSubmit
+            fetch('https://formsubmit.co/misla@alumnos.brs.cl', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(response => {
+                    console.log('📥 Response status:', response.status);
+                    if (response.ok) {
+                        // Si el status es 200-299, consideramos éxito
+                console.log('✅✅ CORREO ENVIADO EXITOSAMENTE');
+                mostrarPopup('¡Propuesta Enviada!', 'Tu propuesta ha sido enviada exitosamente y será revisada por el Centro de Alumnos.', true);
+                document.getElementById('formPropuesta').reset();
+                        return response.json().catch(() => ({})); // Ignorar errores de JSON
+                    } else {
+                        throw new Error('Error en la respuesta del servidor');
+                    }
+            })
+            .catch(error => {
+                console.error('❌ Error al enviar:', error);
+                    // Solo mostrar error si el formulario no se reseteo
+                    const form = document.getElementById('formPropuesta');
+                    if (form && form.querySelector('input[name="titulo"]').value !== '') {
+                        mostrarPopup('Error de conexión', 'No se pudo conectar con el servidor. Verifica tu conexión a internet e intenta nuevamente.', false);
+                    }
+            });
+            
+            return false;
+        }
+        
+        // Funciones para el modal popup con manejo de foco y teclado
+        let lastFocusedElement = null;
+        function mostrarPopup(titulo, mensaje, esExito = true) {
+            const modal = document.getElementById('modalPopup');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
+            const successIcon = modal.querySelector('.success-icon');
+            
+            modalTitle.textContent = titulo;
+            modalMessage.textContent = mensaje;
+            
+            if (esExito) {
+                successIcon.style.background = '#10B981'; // Verde para éxito
+            } else {
+                successIcon.style.background = '#EF4444'; // Rojo para error
+                successIcon.innerHTML = '<svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>';
+            }
+            lastFocusedElement = document.activeElement;
+            modal.classList.add('active');
+            const content = modal.querySelector('.modal-content');
+            const closeBtn = document.getElementById('modalCloseBtn');
+            setTimeout(() => (closeBtn ? closeBtn.focus() : content.focus()), 0);
+
+            function handleKeydown(e) {
+                if (e.key === 'Escape') {
+                    cerrarModal();
+                }
+                if (e.key === 'Tab') {
+                    const focusable = content.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                    if (focusable.length === 0) return;
+                    const first = focusable[0];
+                    const last = focusable[focusable.length - 1];
+                    if (e.shiftKey && document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    } else if (!e.shiftKey && document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+            }
+            modal.addEventListener('keydown', handleKeydown, { once: true });
+            
+            // Auto-cerrar después de 5 segundos si es éxito
+            if (esExito) {
+                setTimeout(() => {
+                    cerrarModal();
+                }, 5000);
+            }
+        }
+        
+        function cerrarModal() {
+            const modal = document.getElementById('modalPopup');
+            modal.classList.remove('active');
+            if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+                lastFocusedElement.focus();
+            }
+            
+            // Restaurar icono de éxito para próximo uso
+            setTimeout(() => {
+                const successIcon = modal.querySelector('.success-icon');
+                successIcon.style.background = '#10B981';
+                successIcon.innerHTML = '<svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>';
+            }, 300);
+        }
+        
+        // Función auxiliar para mostrar mensajes
+        function mostrarMensajeExito(elementId, mensaje) {
+            const messageDiv = document.getElementById(elementId);
+            messageDiv.className = 'p-4 bg-green-100 border border-green-200 text-green-700 rounded-lg';
+            messageDiv.textContent = mensaje;
+            messageDiv.classList.remove('hidden');
+            
+            setTimeout(() => {
+                messageDiv.classList.add('hidden');
+            }, 5000);
+        }
+        
+        // Mostrar mensajes
+        function showMessage(text, type) {
+            // Crear elemento de mensaje temporal
+            const message = document.createElement('div');
+            message.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 ${
+                type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+            }`;
+            message.textContent = text;
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                message.remove();
+            }, 3000);
+        }
+
+        // ========================================
+        // CARGAR GALERÍA DINÁMICAMENTE
+        // ========================================
+        async function loadGalleryImages() {
+            try {
+                // Lista de imágenes conocidas (sin depender de API que falla en producción)
+                const imageList = ['DiadelAlumno1.webp', 'IMG_4210.webp', 'equipo1.webp'];
+                
+                const track = document.getElementById('carouselTrack');
+                if (!track) {
+                    console.warn('⚠️ carouselTrack no encontrado');
+                    return;
+                }
+                
+                track.innerHTML = ''; // Limpiar contenido anterior
+                
+                imageList.forEach((image, index) => {
+                    const imageDiv = document.createElement('div');
+                    imageDiv.className = 'flex-shrink-0 w-full md:w-1/2 lg:w-1/3 relative group rounded-xl overflow-hidden shadow-lg cursor-pointer';
+                    
+                    const imageUrl = `/Images/Galeria/${image}`;
+                    const imageMobileUrl = `/Images/Galeria/${image.replace(/\.webp/, '-mobile.webp')}`;
+                    const imageTabletUrl = `/Images/Galeria/${image.replace(/\.webp/, '-tablet.webp')}`;
+                    
+                    const imgTag = document.createElement('img');
+                    imgTag.src = imageUrl;
+                    imgTag.srcset = `${imageMobileUrl} 600w, ${imageTabletUrl} 900w, ${imageUrl} 1200w`;
+                    imgTag.sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
+                    imgTag.alt = "Foto galería";
+                    imgTag.width = 900;
+                    imgTag.height = 600;
+                    imgTag.className = "w-full h-80 object-cover group-hover:scale-105 transition-all duration-300";
+                    imgTag.loading = "eager";
+                    imgTag.decoding = "async";
+                    imgTag.onclick = (e) => {
+                        e.stopPropagation();
+                        openLightbox(index);
+                    };
+                    
+                    imageDiv.appendChild(imgTag);
+                    imageDiv.onclick = () => openLightbox(index);
+                    track.appendChild(imageDiv);
+                    
+                    console.log(`✅ Imagen ${index + 1}: ${image}`);
+                });
+                
+                // Reinicializar carrusel con las nuevas imágenes
+                initCarousel();
+                console.log(`✅ Galería actualizada: ${imageList.length} fotos cargadas`);
+            } catch (error) {
+                console.error('❌ Error cargando galería:', error);
+            }
+        }
+
+        // ========================================
+        // OPTIMIZACIONES DE RENDIMIENTO
+        // ========================================
+
+        // 1. LAZY LOADING - Cargar imágenes solo cuando se ven
+        function enableLazyLoading() {
+            document.querySelectorAll('img').forEach(img => {
+                img.loading = 'lazy';
+                img.decoding = 'async'; // Decodificar asincronamente
+            });
+        }
+
+        // 2. CACHING LOCAL - Guardar datos para no hacer requests innecesarios
+        const Cache = {
+            set(key, data, minutes = 60) {
+                const expiry = Date.now() + (minutes * 60 * 1000);
+                localStorage.setItem(`cache_${key}`, JSON.stringify({ data, expiry }));
+            },
+            get(key) {
+                const cached = localStorage.getItem(`cache_${key}`);
+                if (!cached) return null;
+                const { data, expiry } = JSON.parse(cached);
+                if (Date.now() > expiry) {
+                    localStorage.removeItem(`cache_${key}`);
+                    return null;
+                }
+                return data;
+            },
+            clear(key) {
+                localStorage.removeItem(`cache_${key}`);
+            }
+        };
+
+        // ========================================
+        // MODAL DE GALERÍA COMPLETA Y LIGHTBOX
+        // ========================================
+        let galleryImages = [
+            { src: '/Images/Galeria/DiadelAlumno1.webp', caption: 'Galería' },
+            { src: '/Images/Galeria/IMG_4210.webp', caption: 'Galería' },
+            { src: '/Images/Galeria/equipo1.webp', caption: 'Galería' }
+        ];
+
+        let currentLightboxIndex = 0;
+        let imageCache = {};
+
+        function openGalleryModal() {
+            const modal = document.getElementById('galleryModal');
+            modal?.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGalleryModal() {
+            const modal = document.getElementById('galleryModal');
+            modal?.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightboxImage');
+            const caption = document.getElementById('lightboxCaption');
+            
+            if (galleryImages[index]) {
+                img.src = galleryImages[index].src + '?t=' + Date.now();
+                img.alt = galleryImages[index].caption;
+                caption.textContent = galleryImages[index].caption;
+                lightbox?.classList.remove('hidden');
+            }
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox?.classList.add('hidden');
+        }
+
+        function nextLightboxImage(event) {
+            event?.stopPropagation();
+            currentLightboxIndex = (currentLightboxIndex + 1) % galleryImages.length;
+            openLightbox(currentLightboxIndex);
+        }
+
+        function prevLightboxImage(event) {
+            event?.stopPropagation();
+            currentLightboxIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
+            openLightbox(currentLightboxIndex);
+        }
+
+        // Cerrar con tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeGalleryModal();
+                closeLightbox();
+            }
+            if (document.getElementById('lightbox')?.classList.contains('hidden') === false) {
+                if (e.key === 'ArrowRight') nextLightboxImage();
+                if (e.key === 'ArrowLeft') prevLightboxImage();
+            }
+        });
+
+        // ========================================
+        // CARRUSEL DE GALERÍA (Múltiples fotos visibles)
+        // ========================================
+        let carouselInitialized = false;
+
+        function initCarousel() {
+            if (carouselInitialized) return;
+
+            const track = document.getElementById('carouselTrack');
+            const prevBtn = document.getElementById('prevSlide');
+            const nextBtn = document.getElementById('nextSlide');
+            
+            if (!track) return;
+
+            carouselInitialized = true;
+            
+            const slides = track.children;
+            const totalSlides = slides.length;
+            let currentIndex = 0;
+            
+            // Calcular cuántas fotos mostrar según el ancho de pantalla
+            function getVisibleSlides() {
+                const width = window.innerWidth;
+                if (width >= 1024) return 3; // Desktop: 3 fotos
+                if (width >= 768) return 2;  // Tablet: 2 fotos
+                return 1;                     // Mobile: 1 foto
+            }
+            
+            function getSlideWidth() {
+                const visibleSlides = getVisibleSlides();
+                return 100 / visibleSlides;
+            }
+            
+            function updateCarousel() {
+                const slideWidth = getSlideWidth();
+                const offset = currentIndex * slideWidth;
+                track.style.transform = `translateX(-${offset}%)`;
+            }
+            
+            function nextSlide() {
+                const visibleSlides = getVisibleSlides();
+                const maxIndex = Math.max(0, totalSlides - visibleSlides);
+                currentIndex = Math.min(currentIndex + 1, maxIndex);
+                updateCarousel();
+            }
+            
+            function prevSlide() {
+                currentIndex = Math.max(currentIndex - 1, 0);
+                updateCarousel();
+            }
+            
+            // Event listeners
+            nextBtn?.addEventListener('click', nextSlide);
+            prevBtn?.addEventListener('click', prevSlide);
+            
+            // Actualizar en resize
+            window.addEventListener('resize', updateCarousel);
+            
+            // Auto-play
+            let autoplayInterval = setInterval(nextSlide, 4000);
+            
+            // Pausar en hover
+            const carouselContainer = document.getElementById('galeria');
+            carouselContainer?.addEventListener('mouseenter', () => {
+                clearInterval(autoplayInterval);
+            });
+            carouselContainer?.addEventListener('mouseleave', () => {
+                autoplayInterval = setInterval(nextSlide, 4000);
+            });
+            
+            // Soporte touch/swipe
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            track.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            track.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchEndX < touchStartX - 50) nextSlide();
+                if (touchEndX > touchStartX + 50) prevSlide();
+            });
+        }
+
+        // 3. INTERSECTION OBSERVER - Cargar contenido cuando es visible
+        function observeElements() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Cargar contenido cuando sea visible
+                        entry.target.classList.add('loaded');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('[data-lazy]').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // 4. DEBOUNCE - Evitar múltiples llamadas mientras se escribe
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // 5. MEDIR RENDIMIENTO
+        function measurePerformance() {
+            if (window.performance && window.performance.timing) {
+                const perfData = window.performance.timing;
+                const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+                
+                console.log('=== MÉTRICAS DE RENDIMIENTO ===');
+                console.log('Tiempo total de carga:', pageLoadTime, 'ms');
+                console.log('First Paint:', perfData.responseStart - perfData.navigationStart, 'ms');
+                console.log('DOM Interactive:', perfData.domInteractive - perfData.navigationStart, 'ms');
+                console.log('DOM Complete:', perfData.domComplete - perfData.navigationStart, 'ms');
+            }
+        }
+
+        // ========================================
+        // TARJETAS DE PROPUESTAS (CAA)
+        // ========================================
+        const proposalsData = [
+            {
+                title: 'Reinvención de Ferias de Comida',
+                description: 'más tiempo para comprar, disfrutar y emprender durante la jornada escolar.'
+            },
+            {
+                title: 'Implementación portal digital CAA (caabrs.cl)',
+                description: 'Centralizar propuestas, beneficios y avances del CAA en caabrs.cl para que toda la comunidad esté informada de forma clara y constante.'
+            },
+            {
+                title: 'Fomentación Espíritu Teletón',
+                description: 'Impulsar actividades solidarias como jeans day y ferias por curso para recaudar más fondos para la Teletón.'
+            },
+            {
+                title: 'Puntos Verdes',
+                description: 'Restaurar los puntos verdes del colegio y promover el reciclaje con campañas en redes sociales y carteles informativos.'
+            }
+        ];
+
+        function renderProposals() {
+            const container = document.getElementById('proposalsCards');
+            if (!container) return;
+
+            if (!proposalsData.length) {
+                container.innerHTML = `
+                    <div class="md:col-span-2 rounded-xl border border-dashed border-gray-300 p-6 text-center">
+                        <p class="text-gray-600">Aún no hay propuestas publicadas.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = proposalsData.map((proposal) => `
+                <article class="rounded-2xl p-[1px] bg-gradient-to-r from-primary via-accent to-primary shadow-md hover:shadow-xl transition-all hover:-translate-y-0.5">
+                    <div class="rounded-2xl bg-white p-6 h-full">
+                        <h4 class="font-bold text-primary mb-2 text-lg">${proposal.title}</h4>
+                        <p class="text-gray-700 text-sm leading-relaxed">${proposal.description}</p>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // Ejecutar optimizaciones al cargar página
+        document.addEventListener('DOMContentLoaded', () => {
+            enableLazyLoading();
+            observeElements();
+            measurePerformance();
+            renderProposals();
+            
+            // Cargar galería de forma dinámica
+            loadGalleryImages();
+            
+            // Calendario: Usar Intersection Observer para cargar solo cuando sea visible
+            const calendarSection = document.getElementById('calendario');
+            if (calendarSection && 'IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting && !calendarLoaded) {
+                        console.log('👁️ Calendario visible - cargando...');
+                        initializeGoogleCalendar();
+                        calendarLoaded = true;
+                        observer.unobserve(calendarSection);
+                    }
+                }, { threshold: 0.1 });
+                
+                observer.observe(calendarSection);
+            } else {
+                // Fallback: cargar después de 3 segundos (menos bloqueante)
+                setTimeout(() => {
+                    if (!calendarLoaded) {
+                        console.log('⏱️ Cargando calendario (timeout)...');
+                        initializeGoogleCalendar();
+                        calendarLoaded = true;
+                    }
+                }, 3000);
+            }
+        });
+
+        // 6. REGISTER SERVICE WORKER (si disponible)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(reg => console.log('Service Worker registrado'))
+                .catch(err => console.log('Error registrando SW:', err));
+        }
+
+        // Cerrar modal al hacer click en overlay
+        document.getElementById('modalPopup')?.addEventListener('click', (e) => {
+            if (e.target && e.target.id === 'modalPopup') cerrarModal();
+        });
+
+    </script>
+</body>
+</html>
