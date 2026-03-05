@@ -15,12 +15,9 @@ const ASSETS_TO_CACHE = [
 
 // Instalar Service Worker y cachear assets
 self.addEventListener('install', (event) => {
-    console.log('Service Worker: Instalando...');
-    
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then((cache) => {
-                console.log('Service Worker: Cacheando assets');
                 return cache.addAll(ASSETS_TO_CACHE);
             })
             .then(() => self.skipWaiting()) // Activar inmediatamente
@@ -29,14 +26,11 @@ self.addEventListener('install', (event) => {
 
 // Activar Service Worker
 self.addEventListener('activate', (event) => {
-    console.log('Service Worker: Activado');
-    
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
                     if (cacheName !== CACHE_NAME) {
-                        console.log('Service Worker: Eliminando cache antiguo:', cacheName);
                         return caches.delete(cacheName);
                     }
                 })
@@ -94,5 +88,3 @@ self.addEventListener('message', (event) => {
         caches.delete(CACHE_NAME);
     }
 });
-
-console.log('Service Worker: Listo para usar');

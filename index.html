@@ -66,14 +66,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
-    <!-- Tailwind CSS compilado localmente (previamente era CDN) -->
+    <!-- Tailwind CSS compilado localmente -->
     <link rel="stylesheet" href="/css/tailwind.css">
-    <!-- Librerías de seguridad: CryptoJS eliminado por no utilizarse -->
-    <script>
-        // ========================================
-        // SISTEMA DE SEGURIDAD Y CIFRADO
-        // ========================================
-    </script>
     <style>
         * {
             -webkit-tap-highlight-color: transparent;
@@ -770,7 +764,7 @@
                                 scrolling="no"
                                 class="rounded-xl relative z-20"
                                 allow="geolocation"
-                                onload="console.log('✅ Desktop iframe cargado'); document.getElementById('calendarLoading')?.remove()">
+                                onload="document.getElementById('calendarLoading')?.remove()">
                         </iframe>
                     </div>
                     
@@ -790,7 +784,7 @@
                                 frameborder="0" 
                                 scrolling="yes"
                                 class="rounded-xl relative z-20"
-                                onload="console.log('✅ Mobile iframe cargado'); document.getElementById('calendarLoadingMobile')?.remove()">
+                                onload="document.getElementById('calendarLoadingMobile')?.remove()">
                         </iframe>
                     </div>
                 </div>
@@ -1212,16 +1206,11 @@
         const CALENDAR_EMAIL = 'calendariocaabrs@gmail.com';
         const CALENDAR_URL = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(CALENDAR_EMAIL)}&ctz=America%2FSantiago&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0&wkst=2&bgcolor=%23ffffff&color=%238B1538`;
         
-        console.log('📅 Inicializando calendario:', CALENDAR_EMAIL);
-        console.log('🔗 URL:', CALENDAR_URL);
-
         // Inicializar calendarios de Google (se carga solo cuando es visible)
         let calendarLoaded = false;
         
         function initializeGoogleCalendar() {
             if (calendarLoaded) return; // Evitar carga doble
-            
-            console.log('▶️ Ejecutando initializeGoogleCalendar...');
             
             try {
                 const desktopIframe = document.getElementById('googleCalendarDesktop');
@@ -1229,18 +1218,14 @@
                 
                 if (desktopIframe && !desktopIframe.src) {
                     desktopIframe.src = CALENDAR_URL;
-                    console.log('✅ Desktop iframe configurado');
                 }
                 
                 if (mobileIframe && !mobileIframe.src) {
                     mobileIframe.src = CALENDAR_URL;
-                    console.log('✅ Mobile iframe configurado');
                 }
 
-                console.log('✅ Calendario inicializado exitosamente');
                 return true;
             } catch (error) {
-                console.error('❌ Error al inicializar calendario:', error);
                 return false;
             }
         }
@@ -1293,8 +1278,6 @@
                 return false;
             }
             
-            console.log('📝 Enviando propuesta:', {titulo, descripcion, autor, curso});
-            
             // Guardar en localStorage
             const propuesta = {
                 id: Date.now(),
@@ -1309,7 +1292,6 @@
             const propuestas = JSON.parse(localStorage.getItem('propuestas') || '[]');
             propuestas.push(propuesta);
             localStorage.setItem('propuestas', JSON.stringify(propuestas));
-            console.log('✅ Propuesta guardada en localStorage');
             
             // Preparar formulario para FormSubmit
             const formData = new FormData();
@@ -1322,9 +1304,6 @@
             formData.append('_template', 'table');
             formData.append('mensaje', `TÍTULO: ${titulo}\n\nDESCRIPCIÓN:\n${descripcion}\n\nAUTOR: ${autor}\nCURSO: ${curso}\nFECHA: ${new Date().toLocaleString('es-CL')}`);
             
-            console.log('📧 Enviando correo a FormSubmit...');
-            console.log('📧 Email destino: misla@alumnos.brs.cl');
-            
             // Enviar a FormSubmit
             fetch('https://formsubmit.co/misla@alumnos.brs.cl', {
                 method: 'POST',
@@ -1334,10 +1313,8 @@
                 body: formData
             })
             .then(response => {
-                    console.log('📥 Response status:', response.status);
                     if (response.ok) {
                         // Si el status es 200-299, consideramos éxito
-                console.log('✅✅ CORREO ENVIADO EXITOSAMENTE');
                 mostrarPopup('¡Propuesta Enviada!', 'Tu propuesta ha sido enviada exitosamente y será revisada por el Centro de Alumnos.', true);
                 document.getElementById('formPropuesta').reset();
                         return response.json().catch(() => ({})); // Ignorar errores de JSON
@@ -1346,7 +1323,6 @@
                     }
             })
             .catch(error => {
-                console.error('❌ Error al enviar:', error);
                     // Solo mostrar error si el formulario no se reseteo
                     const form = document.getElementById('formPropuesta');
                     if (form && form.querySelector('input[name="titulo"]').value !== '') {
@@ -1460,7 +1436,6 @@
                 
                 const track = document.getElementById('carouselTrack');
                 if (!track) {
-                    console.warn('⚠️ carouselTrack no encontrado');
                     return;
                 }
                 
@@ -1492,15 +1467,12 @@
                     imageDiv.appendChild(imgTag);
                     imageDiv.onclick = () => openLightbox(index);
                     track.appendChild(imageDiv);
-                    
-                    console.log(`✅ Imagen ${index + 1}: ${image}`);
                 });
                 
                 // Reinicializar carrusel con las nuevas imágenes
                 initCarousel();
-                console.log(`✅ Galería actualizada: ${imageList.length} fotos cargadas`);
             } catch (error) {
-                console.error('❌ Error cargando galería:', error);
+                // Se mantiene en silencio para no interrumpir la experiencia del usuario.
             }
         }
 
@@ -1721,14 +1693,7 @@
         // 5. MEDIR RENDIMIENTO
         function measurePerformance() {
             if (window.performance && window.performance.timing) {
-                const perfData = window.performance.timing;
-                const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-                
-                console.log('=== MÉTRICAS DE RENDIMIENTO ===');
-                console.log('Tiempo total de carga:', pageLoadTime, 'ms');
-                console.log('First Paint:', perfData.responseStart - perfData.navigationStart, 'ms');
-                console.log('DOM Interactive:', perfData.domInteractive - perfData.navigationStart, 'ms');
-                console.log('DOM Complete:', perfData.domComplete - perfData.navigationStart, 'ms');
+                // Conserva la función para posibles extensiones futuras sin generar ruido en consola.
             }
         }
 
@@ -1792,7 +1757,6 @@
             if (calendarSection && 'IntersectionObserver' in window) {
                 const observer = new IntersectionObserver((entries) => {
                     if (entries[0].isIntersecting && !calendarLoaded) {
-                        console.log('👁️ Calendario visible - cargando...');
                         initializeGoogleCalendar();
                         calendarLoaded = true;
                         observer.unobserve(calendarSection);
@@ -1804,7 +1768,6 @@
                 // Fallback: cargar después de 3 segundos (menos bloqueante)
                 setTimeout(() => {
                     if (!calendarLoaded) {
-                        console.log('⏱️ Cargando calendario (timeout)...');
                         initializeGoogleCalendar();
                         calendarLoaded = true;
                     }
@@ -1815,8 +1778,7 @@
         // 6. REGISTER SERVICE WORKER (si disponible)
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
-                .then(reg => console.log('Service Worker registrado'))
-                .catch(err => console.log('Error registrando SW:', err));
+                .catch(() => {});
         }
 
         // Cerrar modal al hacer click en overlay

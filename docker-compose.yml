@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    restart: always  # Si el sitio falla, Docker lo levanta solo
+    ports:
+      - "80:80"
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    restart: always  # Si el túnel cae por internet, se reintenta solo
+    command: tunnel run --token eyJhIjoiOTk0OGFiOTY3MTE0NTE0YTA2ZDJmODlhZDU4MjJkMjUiLCJ0IjoiY2QyZjQzOWItZGIwZi00OGM1LThhMTItMTU4YTk5MWI1MWM3IiwicyI6Ik9XUTNaV05sTlRndE1XUm1NeTAwWWpJd0xUZzROV010TjJJd05UVmtZekEzTkdNdyJ9
