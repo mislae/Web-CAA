@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credencial Estudiantil CAA</title>
+  <meta name="description" content="Credencial estudiantil cargada de forma dinamica.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card-container" aria-label="Credencial estudiantil">
+    <header class="card-header">
+      <p class="institution-name">British Royal School</p>
+      <p class="institution-tag">Centro de Alumnos</p>
+    </header>
+
+    <section class="student-profile" aria-label="Perfil del alumno">
+      <img src="" alt="Foto del alumno" class="student-photo" id="student-photo">
+      <h1 class="student-name" id="student-name">Cargando...</h1>
+      <p class="student-course" id="student-course"></p>
+      <p class="student-rut" id="student-rut"></p>
+      <p class="badge-highlight" role="status" aria-label="Insignia destacada">
+        Socio Activo CAA 2026
+      </p>
+    </section>
+
+    <footer class="card-footer">
+      <div id="reloj-seguridad" aria-live="polite" aria-label="Reloj de seguridad"></div>
+      <a class="back-link" href="/">Cerrar sesion</a>
+    </footer>
+  </main>
+
+  <script src="card.js"></script>
+</body>
+</html>

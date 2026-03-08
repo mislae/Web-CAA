@@ -1,0 +1,12 @@
+{
+  "name": "credencial-caa",
+  "version": "1.0.0",
+  "description": "Aplicacion dinamica de credencial estudiantil con login institucional.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

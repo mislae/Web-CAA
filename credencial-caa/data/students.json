@@ -1,0 +1,23 @@
+[
+  {
+    "email": "martina.rios@britishroyalschool.cl",
+    "name": "Martina Rios",
+    "course": "4to Medio A",
+    "rut": "20.345.678-9",
+    "photoUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80"
+  },
+  {
+    "email": "tomas.alarcon@britishroyalschool.cl",
+    "name": "Tomas Alarcon",
+    "course": "3ro Medio B",
+    "rut": "21.123.456-7",
+    "photoUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80"
+  },
+  {
+    "email": "valentina.soto@britishroyalschool.cl",
+    "name": "Valentina Soto",
+    "course": "2do Medio C",
+    "rut": "22.987.654-3",
+    "photoUrl": "https://images.unsplash.com/photo-1542206395-9feb3edaa68d?auto=format&fit=crop&w=500&q=80"
+  }
+]
