@@ -4,7 +4,7 @@ const path = require('node:path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const INSTITUTIONAL_DOMAIN = 'britishroyalschool.cl';
+const INSTITUTIONAL_DOMAIN = 'brs.cl';
 
 const publicDir = path.join(__dirname, 'public');
 const studentsDbPath = path.join(__dirname, 'data', 'students.json');
