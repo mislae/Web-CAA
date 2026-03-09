@@ -4,6 +4,9 @@ const nameField = document.getElementById('student-name');
 const courseField = document.getElementById('student-course');
 const rutField = document.getElementById('student-rut');
 const photoField = document.getElementById('student-photo');
+const logoutLink = document.getElementById('logout-link');
+const topBackButton = document.getElementById('top-back-button');
+const SESSION_KEY = 'caa_credencial_email';
 
 function formatTwoDigits(value) {
   return String(value).padStart(2, '0');
@@ -114,6 +117,10 @@ function getEmailFromQuery() {
   return (params.get('email') || '').trim().toLowerCase();
 }
 
+function getSessionEmail() {
+  return (localStorage.getItem(SESSION_KEY) || '').trim().toLowerCase();
+}
+
 function renderStudent(student) {
   if (!student) {
     return;
@@ -127,7 +134,13 @@ function renderStudent(student) {
 }
 
 async function loadStudentData() {
-  const email = getEmailFromQuery();
+  const queryEmail = getEmailFromQuery();
+  const email = queryEmail || getSessionEmail();
+
+  if (queryEmail) {
+    localStorage.setItem(SESSION_KEY, queryEmail);
+  }
+
   if (!email) {
     window.location.href = '/';
     return;
@@ -150,7 +163,34 @@ async function loadStudentData() {
   }
 }
 
+function configureLogout() {
+  if (!logoutLink) {
+    return;
+  }
+
+  logoutLink.addEventListener('click', () => {
+    localStorage.removeItem(SESSION_KEY);
+  });
+}
+
+function configureBackButton() {
+  if (!topBackButton) {
+    return;
+  }
+
+  topBackButton.addEventListener('click', () => {
+    if (window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+
+    window.location.href = '/';
+  });
+}
+
 updateSecurityClock();
 setInterval(updateSecurityClock, 1000);
 requestOrientationPermissionAndStart();
 loadStudentData();
+configureLogout();
+configureBackButton();

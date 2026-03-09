@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Credencial Estudiantil CAA</title>
   <meta name="description" content="Credencial estudiantil cargada de forma dinamica.">
+  <link rel="icon" href="/Images/Logo.png" type="image/png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <button id="top-back-button" class="top-back-button" type="button" aria-label="Volver a la pagina anterior">
+    Volver
+  </button>
+
   <main class="card-container" aria-label="Credencial estudiantil">
     <header class="card-header">
       <p class="institution-name">British Royal School</p>
@@ -26,7 +31,7 @@
 
     <footer class="card-footer">
       <div id="reloj-seguridad" aria-live="polite" aria-label="Reloj de seguridad"></div>
-      <a class="back-link" href="/">Cerrar sesion</a>
+      <a id="logout-link" class="back-link" href="/">Cerrar sesion</a>
     </footer>
   </main>
 

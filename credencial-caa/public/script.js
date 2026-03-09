@@ -2,6 +2,8 @@ const loginForm = document.getElementById('login-form');
 const loginInput = document.getElementById('institutional-email');
 const loginButton = document.getElementById('login-button');
 const loginMessage = document.getElementById('login-message');
+const topBackButton = document.getElementById('top-back-button');
+const SESSION_KEY = 'caa_credencial_email';
 
 function setMessage(message, isError = false) {
 	if (!loginMessage) {
@@ -43,6 +45,7 @@ async function handleLoginSubmit(event) {
 			return;
 		}
 
+		localStorage.setItem(SESSION_KEY, payload.email);
 		window.location.href = `/tarjeta?email=${encodeURIComponent(payload.email)}`;
 	} catch (error) {
 		console.error('Error en login:', error);
@@ -55,3 +58,30 @@ async function handleLoginSubmit(event) {
 if (loginForm) {
 	loginForm.addEventListener('submit', handleLoginSubmit);
 }
+
+function configureBackButton() {
+	if (!topBackButton) {
+		return;
+	}
+
+	topBackButton.addEventListener('click', () => {
+		if (window.history.length > 1) {
+			window.history.back();
+			return;
+		}
+
+		window.location.href = '/';
+	});
+}
+
+function restoreSavedSession() {
+	const savedEmail = (localStorage.getItem(SESSION_KEY) || '').trim().toLowerCase();
+	if (!savedEmail) {
+		return;
+	}
+
+	window.location.href = `/tarjeta?email=${encodeURIComponent(savedEmail)}`;
+}
+
+restoreSavedSession();
+configureBackButton();

@@ -8,7 +8,8 @@ La seccion "Cuentas Claras" muestra informacion financiera del CAA de forma tran
 
 ## Implementacion actual
 
-- La pagina dedicada es `cuentas-claras.html`.
+- La pagina dedicada esta archivada en `.archived/cuentas-claras.html`.
+- Actualmente no esta publicada ni enlazada desde `index.html`.
 - El contenido principal se muestra mediante un `iframe` de Airtable.
 - El `iframe` carga esta vista publicada:
   - `https://airtable.com/embed/appB13HSymAL7ArK7/shrEeipVV7TKKU4oX`
@@ -16,14 +17,14 @@ La seccion "Cuentas Claras" muestra informacion financiera del CAA de forma tran
 
 ## Flujo general
 
-1. El usuario entra a `cuentas-claras.html`.
+1. Para publicarla, mover `.archived/cuentas-claras.html` a la raiz como `cuentas-claras.html`.
 2. Se renderiza la barra lateral y el encabezado del sitio.
 3. Se carga el `iframe` de Airtable con la tabla de datos financieros.
 4. La informacion se consulta directamente desde Airtable.
 
 ## Mantenimiento
 
-- Si cambia el enlace publico de Airtable, actualizar el atributo `src` del `iframe` en `cuentas-claras.html`.
+- Si cambia el enlace publico de Airtable, actualizar el atributo `src` del `iframe` en `.archived/cuentas-claras.html` (o en `cuentas-claras.html` si se reactiva).
 - Mantener el acceso publico del recurso de Airtable para que el `iframe` se pueda visualizar.
 - Revisar periodicamente que la altura (`height`) del `iframe` sea suficiente para la tabla.
 

@@ -1,7 +1,6 @@
 module.exports = {
   content: [
     "./index.html",
-    "./cuentas-claras.html",
   ],
   theme: {
     extend: {
