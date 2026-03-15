@@ -90,6 +90,15 @@ body {
 	gap: 0.65rem;
 }
 
+.is-hidden {
+	display: none;
+}
+
+.action-row {
+	display: grid;
+	gap: 0.5rem;
+}
+
 label {
 	font-size: 0.94rem;
 	font-weight: 600;
@@ -122,6 +131,16 @@ button {
 
 button:hover {
 	background: var(--brand-red-dark);
+}
+
+.secondary-button {
+	background: #f1e7e4;
+	color: #4d2528;
+	border: 1px solid #cbb8b2;
+}
+
+.secondary-button:hover {
+	background: #e6d8d4;
 }
 
 button:disabled {

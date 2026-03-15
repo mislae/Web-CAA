@@ -1,7 +1,27 @@
 services:
+  credencial:
+    build: ./credencial-caa
+    restart: always
+    environment:
+      - PORT=3000
+      - ALUMNI_DOMAIN=${ALUMNI_DOMAIN:-alumnos.brs.cl}
+      - OTP_SECRET=${OTP_SECRET:-change-this-secret}
+      - OTP_TTL_MINUTES=${OTP_TTL_MINUTES:-10}
+      - SESSION_TTL_DAYS=${SESSION_TTL_DAYS:-30}
+      - MAIL_FROM=${MAIL_FROM:-}
+      - SMTP_HOST=${SMTP_HOST:-}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_USER=${SMTP_USER:-}
+      - SMTP_PASS=${SMTP_PASS:-}
+      - SMTP_SECURE=${SMTP_SECURE:-false}
+    volumes:
+      - credencial_data:/app/data
+
   web:
     build: .
-    restart: always  # Si el sitio falla, Docker lo levanta solo
+    restart: always
+    depends_on:
+      - credencial
     ports:
       - "80:80"
 
@@ -9,3 +29,6 @@ services:
     image: cloudflare/cloudflared:latest
     restart: always  # Si el túnel cae por internet, se reintenta solo
     command: tunnel run --token eyJhIjoiOTk0OGFiOTY3MTE0NTE0YTA2ZDJmODlhZDU4MjJkMjUiLCJ0IjoiY2QyZjQzOWItZGIwZi00OGM1LThhMTItMTU4YTk5MWI1MWM3IiwicyI6Ik9XUTNaV05sTlRndE1XUm1NeTAwWWpJd0xUZzROV010TjJJd05UVmtZekEzTkdNdyJ9
+
+volumes:
+  credencial_data:

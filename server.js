@@ -136,6 +136,11 @@ app.get('/api/gallery/images', (req, res) => {
 // ============================================
 // SERVIR ARCHIVOS ESTÁTICOS (después de API)
 // ============================================
+// Bloqueo temporal del modulo de credencial estudiantil.
+app.use('/credencial-caa', (_req, res) => {
+  res.status(404).send('Seccion temporalmente no disponible.');
+});
+
 // Cache agresivo para imágenes (30 días)
 app.use('/Images', express.static(uploadsDir, { 
   maxAge: '30d', 

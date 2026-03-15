@@ -4,9 +4,15 @@
   "description": "Aplicacion dinamica de credencial estudiantil con login institucional.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "students:import": "node scripts/import-students.js --file data/students.csv",
+    "student:add": "node scripts/add-student.js"
   },
   "dependencies": {
-    "express": "^4.21.2"
+    "csv-parse": "^5.6.0",
+    "express": "^4.21.2",
+    "nodemailer": "^6.10.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   }
 }

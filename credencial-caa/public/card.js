@@ -7,6 +7,7 @@ const photoField = document.getElementById('student-photo');
 const logoutLink = document.getElementById('logout-link');
 const topBackButton = document.getElementById('top-back-button');
 const SESSION_KEY = 'caa_credencial_email';
+const SESSION_TOKEN_KEY = 'caa_credencial_token';
 
 function formatTwoDigits(value) {
   return String(value).padStart(2, '0');
@@ -112,13 +113,12 @@ async function requestOrientationPermissionAndStart() {
   });
 }
 
-function getEmailFromQuery() {
-  const params = new URLSearchParams(window.location.search);
-  return (params.get('email') || '').trim().toLowerCase();
-}
-
 function getSessionEmail() {
   return (localStorage.getItem(SESSION_KEY) || '').trim().toLowerCase();
+}
+
+function getSessionToken() {
+  return (localStorage.getItem(SESSION_TOKEN_KEY) || '').trim();
 }
 
 function renderStudent(student) {
@@ -134,20 +134,20 @@ function renderStudent(student) {
 }
 
 async function loadStudentData() {
-  const queryEmail = getEmailFromQuery();
-  const email = queryEmail || getSessionEmail();
+  const email = getSessionEmail();
+  const sessionToken = getSessionToken();
 
-  if (queryEmail) {
-    localStorage.setItem(SESSION_KEY, queryEmail);
-  }
-
-  if (!email) {
+  if (!email || !sessionToken) {
     window.location.href = '/';
     return;
   }
 
   try {
-    const response = await fetch(`/api/students/${encodeURIComponent(email)}`);
+    const response = await fetch('/api/students/me', {
+      headers: {
+        Authorization: `Bearer ${sessionToken}`
+      }
+    });
     const payload = await response.json();
 
     if (!response.ok) {
@@ -157,6 +157,8 @@ async function loadStudentData() {
     renderStudent(payload.student);
   } catch (error) {
     console.error('Error cargando alumno:', error);
+    localStorage.removeItem(SESSION_KEY);
+    localStorage.removeItem(SESSION_TOKEN_KEY);
     nameField.textContent = 'No se pudo cargar la credencial';
     courseField.textContent = 'Verifica tus datos e intenta nuevamente';
     rutField.textContent = '';
@@ -168,8 +170,27 @@ function configureLogout() {
     return;
   }
 
-  logoutLink.addEventListener('click', () => {
+  logoutLink.addEventListener('click', async (event) => {
+    event.preventDefault();
+
+    const sessionToken = getSessionToken();
+
+    if (sessionToken) {
+      try {
+        await fetch('/api/logout', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${sessionToken}`
+          }
+        });
+      } catch (_error) {
+        // Ignorar error de red en logout y limpiar sesion local de todas formas.
+      }
+    }
+
     localStorage.removeItem(SESSION_KEY);
+    localStorage.removeItem(SESSION_TOKEN_KEY);
+    window.location.href = '/';
   });
 }
 

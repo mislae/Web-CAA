@@ -17,7 +17,7 @@
     <section class="login-panel">
       <p class="panel-kicker">British Royal School</p>
       <h1>Acceso a Credencial CAA</h1>
-      <p class="panel-copy">Ingresa tu correo institucional para cargar tu credencial estudiantil.</p>
+      <p class="panel-copy">Ingresa tu correo @alumnos.brs.cl para recibir un codigo y verificar acceso.</p>
 
       <form id="login-form" novalidate>
         <label for="institutional-email">Correo institucional</label>
@@ -25,11 +25,30 @@
           id="institutional-email"
           name="email"
           type="email"
-          placeholder="nombre.apellido@brs.cl"
+          placeholder="nombre.apellido@alumnos.brs.cl"
           autocomplete="email"
           required
         >
-        <button type="submit" id="login-button">Iniciar sesion</button>
+
+        <div id="verification-step" class="is-hidden">
+          <label for="verification-code">Codigo de verificacion</label>
+          <input
+            id="verification-code"
+            name="code"
+            type="text"
+            inputmode="numeric"
+            pattern="[0-9]{6}"
+            maxlength="6"
+            placeholder="Ej: 123456"
+            autocomplete="one-time-code"
+          >
+        </div>
+
+        <div class="action-row">
+          <button type="button" id="request-code-button">Enviar codigo</button>
+          <button type="submit" id="verify-code-button" class="is-hidden">Verificar codigo</button>
+          <button type="button" id="change-email-button" class="secondary-button is-hidden">Cambiar correo</button>
+        </div>
       </form>
 
       <p id="login-message" class="login-message" aria-live="polite"></p>
