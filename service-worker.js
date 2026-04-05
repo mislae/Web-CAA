@@ -2,11 +2,12 @@
 // SERVICE WORKER - Caching y Offline
 // ========================================
 
-const CACHE_NAME = 'caa-brs-v5';
+const CACHE_NAME = 'caa-brs-v7';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
     '/css/tailwind.css',
+    '/Images/Galeria/imagen_grupo-bg-1280.webp',
     '/manifest.json',
     '/Images/Logo.png',
     '/Images/icon-192.png',

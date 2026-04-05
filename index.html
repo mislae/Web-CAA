@@ -112,17 +112,34 @@
         }
         
         .banner-bg {
-            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200');
-            background-size: cover;
-            background-position: center;
+            background:
+                radial-gradient(circle at top left, rgba(227, 29, 35, 0.22), transparent 42%),
+                linear-gradient(135deg, rgba(99, 15, 22, 0.96) 0%, rgba(99, 15, 22, 0.84) 55%, rgba(60, 10, 14, 0.92) 100%);
         }
         
         .banner-bg::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(99, 15, 22, 0.85) 0%, rgba(99, 15, 22, 0.7) 100%);
-            backdrop-filter: blur(2px);
+            background: linear-gradient(135deg, rgba(99, 15, 22, 0.45) 0%, rgba(99, 15, 22, 0.28) 100%);
+        }
+
+        .intercurso-bg {
+            background-color: #f9fafb;
+        }
+
+        .intercurso-overlay {
+            background:
+                linear-gradient(180deg, rgba(99, 15, 22, 0.22) 0%, rgba(99, 15, 22, 0.38) 48%, rgba(20, 23, 30, 0.72) 100%),
+                radial-gradient(circle at top right, rgba(227, 29, 35, 0.26), transparent 44%);
+        }
+
+        .intercurso-message {
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+        }
+
+        .intercurso-message p {
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .lightbox-flex:not(.hidden) {
@@ -157,12 +174,11 @@
                 backdrop-filter: blur(0px) !important;
             }
             
-            /* Reducir padding en móvil */
             .banner-bg::before {
-                backdrop-filter: none;
+                background: linear-gradient(135deg, rgba(99, 15, 22, 0.5) 0%, rgba(99, 15, 22, 0.32) 100%);
             }
         }
-        
+
         #hamburger-toggle {
             display: none;
         }
@@ -608,6 +624,7 @@
                         <span class="font-medium">Intercurso</span>
                     </a>
                 </li>
+                <!-- Nuestras Propuestas 2026 oculto temporalmente; para reactivarlo, quitar la clase "hidden" de este <li> y de la sección correspondiente -->
                 <li>
                     <a href="#nuestras-propuestas" class="sidebar-link flex items-center gap-4 py-3 text-white/70 hover:text-white">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -677,8 +694,8 @@
                             Participa, propone y sé parte del cambio que queremos ver.
                         </p>
                         <div class="flex flex-col md:flex-row gap-3 md:gap-4">
-                            <a href="#nuestras-propuestas" class="bg-accent hover:bg-accent/90 text-white px-6 md:px-8 py-3 rounded-lg font-semibold shadow-lg transition-all hover:scale-105 text-center text-sm md:text-base">
-                                Ver Propuestas
+                            <a href="#propuestas" class="bg-accent hover:bg-accent/90 text-white px-6 md:px-8 py-3 rounded-lg font-semibold shadow-lg transition-all hover:scale-105 text-center text-sm md:text-base">
+                                Enviar Propuesta
                             </a>
                             <a href="#calendario" class="bg-white/10 hover:bg-white/20 text-white px-6 md:px-8 py-3 rounded-lg font-semibold backdrop-blur-sm border border-white/20 transition-all text-center text-sm md:text-base">
                                 Calendario
@@ -808,18 +825,18 @@
                         En desarrollo
                     </span>
                 </div>
-                <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                <div class="relative intercurso-bg rounded-2xl shadow-lg overflow-hidden border border-gray-100">
                     <!-- Overlay con mensaje -->
-                    <div class="absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-br from-primary/95 to-accent/95 backdrop-blur-sm">
-                        <div class="text-center px-6 py-8">
-                            <div class="inline-flex items-center justify-center w-20 h-20 bg-white/10 rounded-full mb-4 backdrop-blur-md">
+                    <div class="absolute inset-0 z-10 flex items-center justify-center intercurso-overlay">
+                        <div class="intercurso-message text-center px-6 py-8">
+                            <div class="inline-flex items-center justify-center w-20 h-20 bg-black/25 border border-white/25 rounded-full mb-4">
                                 <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 </svg>
                             </div>
                             <h4 class="text-2xl md:text-3xl font-bold text-white mb-3">Funcionalidad en Desarrollo</h4>
-                            <p class="text-white/90 text-sm md:text-base max-w-md leading-relaxed">
+                            <p class="text-sm md:text-base max-w-md leading-relaxed">
                                 Estamos trabajando en esta sección para brindarte la mejor experiencia.
                             </p>
                         </div>
@@ -918,6 +935,7 @@
             </section>
 
             <!-- Nuestras Propuestas (CAA BRS 2026) -->
+            <!-- Nuestras Propuestas 2026 oculto temporalmente; para reactivarlo, quitar la clase "hidden" -->
             <section id="nuestras-propuestas" class="mb-10">
                 <div class="flex items-center justify-between mb-6">
                     <div>
