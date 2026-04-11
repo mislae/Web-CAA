@@ -22,8 +22,12 @@ services:
     restart: always
     depends_on:
       - credencial
+    environment:
+      - PORT=80
     ports:
       - "80:80"
+    volumes:
+      - web_images:/app/Images
 
   tunnel:
     image: cloudflare/cloudflared:latest
@@ -32,3 +36,4 @@ services:
 
 volumes:
   credencial_data:
+  web_images:

@@ -58,15 +58,10 @@
         }
     }
     </script>
-    <!-- Precargar imágenes críticas del carrusel -->
-    <link rel="preload" href="/Images/Galeria/DiadelAlumno1.webp" as="image">
-    <link rel="preload" href="/Images/Galeria/IMG_4210.webp" as="image">
-    <!-- Precargar fuentes locales si existen -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <!-- Precargar solo la imagen LCP esperada del carrusel -->
+    <link rel="preload" href="/Images/Galeria/DiadelAlumno1.webp?v=20260411" as="image" imagesrcset="/Images/Galeria/DiadelAlumno1-mobile.webp?v=20260411 480w, /Images/Galeria/DiadelAlumno1-tablet.webp?v=20260411 768w, /Images/Galeria/DiadelAlumno1.webp?v=20260411 900w" imagesizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw">
     <!-- Tailwind CSS compilado localmente -->
+    <link rel="preload" href="/css/tailwind.css" as="style">
     <link rel="stylesheet" href="/css/tailwind.css">
     <style>
         * {
@@ -80,6 +75,7 @@
         
         body {
             overflow-x: hidden;
+            font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
         }
         
         .sidebar-link {
@@ -507,7 +503,7 @@
             <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <!-- Foto 1 -->
                 <div class="group relative aspect-square rounded-lg overflow-hidden cursor-pointer" onclick="openLightbox(0)">
-                    <img src="/Images/Galeria/DiadelAlumno1.webp" srcset="/Images/Galeria/DiadelAlumno1-mobile.webp 600w, /Images/Galeria/DiadelAlumno1-tablet.webp 900w, /Images/Galeria/DiadelAlumno1.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" alt="Foto galería" width="400" height="400" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"/>
+                    <img src="/Images/Galeria/DiadelAlumno1.webp?v=20260411" srcset="/Images/Galeria/DiadelAlumno1-mobile.webp?v=20260411 480w, /Images/Galeria/DiadelAlumno1-tablet.webp?v=20260411 768w, /Images/Galeria/DiadelAlumno1.webp?v=20260411 900w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" alt="Foto galería" width="400" height="400" loading="lazy" fetchpriority="low" decoding="async" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"/>
                 </div>
 
                 <!-- Placeholders para más fotos -->
@@ -721,7 +717,22 @@
                         <!-- Contenedor del carrusel -->
                         <div class="overflow-hidden rounded-xl">
                             <div id="carouselTrack" class="flex gap-4 transition-transform duration-500 ease-in-out">
-                                <!-- Las fotos se cargan dinámicamente aquí -->
+                                <!-- Primera imagen embebida para descubrimiento temprano de LCP -->
+                                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 relative group rounded-xl overflow-hidden shadow-lg cursor-pointer" onclick="openLightbox(0)">
+                                    <img
+                                        src="/Images/Galeria/DiadelAlumno1.webp?v=20260411"
+                                        srcset="/Images/Galeria/DiadelAlumno1-mobile.webp?v=20260411 480w, /Images/Galeria/DiadelAlumno1-tablet.webp?v=20260411 768w, /Images/Galeria/DiadelAlumno1.webp?v=20260411 900w"
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        alt="Foto galería"
+                                        width="900"
+                                        height="600"
+                                        data-gallery-image="DiadelAlumno1.webp"
+                                        data-no-lazy="true"
+                                        fetchpriority="high"
+                                        decoding="async"
+                                        class="w-full h-80 object-cover group-hover:scale-105 transition-all duration-300"
+                                    />
+                                </div>
                             </div>
                         </div>
 
@@ -1452,35 +1463,50 @@
         // ========================================
         // CARGAR GALERÍA DINÁMICAMENTE
         // ========================================
+        const IMAGE_VERSION = '20260411';
+
         async function loadGalleryImages() {
             try {
                 // Lista de imágenes conocidas (sin depender de API que falla en producción)
-                const imageList = ['DiadelAlumno1.webp', 'IMG_4210.webp', 'equipo1.webp'];
+                const imageList = [
+                    { file: 'DiadelAlumno1.webp', widths: { mobile: 480, tablet: 768, desktop: 900 } },
+                    { file: 'IMG_4210.webp', widths: { mobile: 600, tablet: 900, desktop: 1400 } },
+                    { file: 'equipo1.webp', widths: { mobile: 600, tablet: 900, desktop: 1200 } }
+                ];
                 
                 const track = document.getElementById('carouselTrack');
                 if (!track) {
                     return;
                 }
                 
-                track.innerHTML = ''; // Limpiar contenido anterior
-                
-                imageList.forEach((image, index) => {
+                const existingImages = new Set(
+                    Array.from(track.querySelectorAll('img[data-gallery-image]'))
+                        .map((img) => img.dataset.galleryImage)
+                        .filter(Boolean)
+                );
+
+                imageList.forEach((imageMeta, index) => {
+                    const image = imageMeta.file;
+                    if (existingImages.has(image)) return;
+
                     const imageDiv = document.createElement('div');
                     imageDiv.className = 'flex-shrink-0 w-full md:w-1/2 lg:w-1/3 relative group rounded-xl overflow-hidden shadow-lg cursor-pointer';
                     
-                    const imageUrl = `/Images/Galeria/${image}`;
-                    const imageMobileUrl = `/Images/Galeria/${image.replace(/\.webp/, '-mobile.webp')}`;
-                    const imageTabletUrl = `/Images/Galeria/${image.replace(/\.webp/, '-tablet.webp')}`;
+                    const imageUrl = `/Images/Galeria/${image}?v=${IMAGE_VERSION}`;
+                    const imageMobileUrl = `/Images/Galeria/${image.replace(/\.webp/, '-mobile.webp')}?v=${IMAGE_VERSION}`;
+                    const imageTabletUrl = `/Images/Galeria/${image.replace(/\.webp/, '-tablet.webp')}?v=${IMAGE_VERSION}`;
                     
                     const imgTag = document.createElement('img');
                     imgTag.src = imageUrl;
-                    imgTag.srcset = `${imageMobileUrl} 600w, ${imageTabletUrl} 900w, ${imageUrl} 1200w`;
+                    imgTag.srcset = `${imageMobileUrl} ${imageMeta.widths.mobile}w, ${imageTabletUrl} ${imageMeta.widths.tablet}w, ${imageUrl} ${imageMeta.widths.desktop}w`;
                     imgTag.sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
                     imgTag.alt = "Foto galería";
                     imgTag.width = 900;
                     imgTag.height = 600;
                     imgTag.className = "w-full h-80 object-cover group-hover:scale-105 transition-all duration-300";
-                    imgTag.loading = "eager";
+                    imgTag.dataset.galleryImage = image;
+                    imgTag.loading = index === 0 ? "eager" : "lazy";
+                    imgTag.fetchPriority = index === 0 ? "high" : "low";
                     imgTag.decoding = "async";
                     imgTag.onclick = (e) => {
                         e.stopPropagation();
@@ -1506,8 +1532,16 @@
         // 1. LAZY LOADING - Cargar imágenes solo cuando se ven
         function enableLazyLoading() {
             document.querySelectorAll('img').forEach(img => {
+                if (img.dataset.noLazy === 'true') {
+                    img.loading = 'eager';
+                    img.fetchPriority = 'high';
+                    return;
+                }
                 img.loading = 'lazy';
                 img.decoding = 'async'; // Decodificar asincronamente
+                if (!img.fetchPriority) {
+                    img.fetchPriority = 'low';
+                }
             });
         }
 
@@ -1536,9 +1570,9 @@
         // MODAL DE GALERÍA COMPLETA Y LIGHTBOX
         // ========================================
         let galleryImages = [
-            { src: '/Images/Galeria/DiadelAlumno1.webp', caption: 'Galería' },
-            { src: '/Images/Galeria/IMG_4210.webp', caption: 'Galería' },
-            { src: '/Images/Galeria/equipo1.webp', caption: 'Galería' }
+            { src: `/Images/Galeria/DiadelAlumno1.webp?v=${IMAGE_VERSION}`, caption: 'Galería' },
+            { src: `/Images/Galeria/IMG_4210.webp?v=${IMAGE_VERSION}`, caption: 'Galería' },
+            { src: `/Images/Galeria/equipo1.webp?v=${IMAGE_VERSION}`, caption: 'Galería' }
         ];
 
         let currentLightboxIndex = 0;
@@ -1563,7 +1597,7 @@
             const caption = document.getElementById('lightboxCaption');
             
             if (galleryImages[index]) {
-                img.src = galleryImages[index].src + '?t=' + Date.now();
+                img.src = galleryImages[index].src;
                 img.alt = galleryImages[index].caption;
                 caption.textContent = galleryImages[index].caption;
                 lightbox?.classList.remove('hidden');
