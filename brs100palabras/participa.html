@@ -163,8 +163,8 @@
       <div class="upload-block">
         <p class="upload-title">Sube tu cuento</p>
         <div class="upload-grid">
-          <a id="uploadMiddleBtn" class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSc9xBC2Z3gDInXteScVlYjoy2y9cApcDCgGOnrNoFIDrWlmlg/viewform?usp=dialog">Sube tu cuento - Middle</a>
-          <a id="uploadSeniorBtn" class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSdZ3Yh3rWUhVrLD9WMhEIvGqGv5hnTqPCv9d4guPByo4BNN-w/viewform?usp=header">Sube tu cuento - Senior</a>
+          <a id="uploadMiddleBtn" class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSc9xBC2Z3gDInXteScVlYjoy2y9cApcDCgGOnrNoFIDrWlmlg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Sube tu cuento - Middle</a>
+          <a id="uploadSeniorBtn" class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSdZ3Yh3rWUhVrLD9WMhEIvGqGv5hnTqPCv9d4guPByo4BNN-w/viewform?usp=header" target="_blank" rel="noopener noreferrer">Sube tu cuento - Senior</a>
         </div>
       </div>
     </div>
@@ -172,18 +172,5 @@
     <p class="back-link"><a href="/index.html">Volver al inicio</a></p>
   </section>
 
-  <script>
-    (function makeUploadLinksReliable() {
-      const middle = document.getElementById('uploadMiddleBtn');
-      const senior = document.getElementById('uploadSeniorBtn');
-      [middle, senior].forEach((link) => {
-        if (!link) return;
-        link.addEventListener('click', (event) => {
-          event.preventDefault();
-          window.location.assign(link.href);
-        });
-      });
-    })();
-  </script>
 </body>
 </html>

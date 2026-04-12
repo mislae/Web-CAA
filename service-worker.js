@@ -2,7 +2,7 @@
 // SERVICE WORKER - Caching y Offline
 // ========================================
 
-const CACHE_NAME = 'caa-brs-v8';
+const CACHE_NAME = 'caa-brs-v9';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
@@ -45,9 +45,17 @@ self.addEventListener('activate', (event) => {
 // Interceptar peticiones (Network First Strategy)
 self.addEventListener('fetch', (event) => {
     const { request } = event;
+    const requestUrl = new URL(request.url);
+    const isSameOrigin = requestUrl.origin === self.location.origin;
     
     // Solo cachear GET
     if (request.method !== 'GET') {
+        return;
+    }
+
+    // No interceptar solicitudes de otros dominios.
+    // Esto evita romper enlaces externos (por ejemplo, Google Forms).
+    if (!isSameOrigin) {
         return;
     }
 
@@ -70,7 +78,7 @@ self.addEventListener('fetch', (event) => {
                             return cachedResponse;
                         }
                         
-                        // Si no está en cache, retornar página offline
+                        // Si no está en cache y es navegación local, retornar home offline
                         if (request.destination === 'document') {
                             return caches.match('/index.html');
                         }
