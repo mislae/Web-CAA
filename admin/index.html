@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Admin | CAA BRS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .login-modal {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .login-modal.hidden {
+      display: none;
+    }
+
+    .admin-panel {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 500px;
+      display: none;
+    }
+
+    .admin-panel.visible {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    h2 {
+      color: #555;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #666;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input[type="password"] {
+      padding: 0.75rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    button {
+      padding: 0.75rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .error-msg {
+      color: #ef4444;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .control-section {
+      background: #f9fafb;
+      padding: 2rem;
+      border-radius: 0.75rem;
+      text-align: center;
+    }
+
+    .toggle-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin: 1.5rem 0;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 70px;
+      height: 40px;
+    }
+
+    .toggle-switch input {
+      display: none;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.3s;
+      border-radius: 40px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 32px;
+      width: 32px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .toggle-slider {
+      background-color: #10b981;
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(30px);
+    }
+
+    .status {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 1rem 0;
+    }
+
+    .status.active {
+      color: #10b981;
+    }
+
+    .status.inactive {
+      color: #ef4444;
+    }
+
+    .logout-btn {
+      background: #ef4444;
+      margin-top: 1rem;
+    }
+
+    .logout-btn:hover {
+      background: #dc2626;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: none;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      display: block;
+      animation: slideIn 0.3s ease, slideOut 0.3s ease 2.7s;
+    }
+
+    .toast.success {
+      border-left: 4px solid #10b981;
+      color: #10b981;
+    }
+
+    .toast.error {
+      border-left: 4px solid #ef4444;
+      color: #ef4444;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(400px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem;
+      }
+
+      .login-modal,
+      .admin-panel {
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .toggle-container {
+        gap: 1rem;
+      }
+
+      .toast {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Login -->
+  <div class="login-modal" id="loginModal">
+    <h1>🔐 Panel Admin</h1>
+    <p>Ingresa la contraseña de administrador</p>
+    <form id="loginForm">
+      <input
+        type="password"
+        id="passwordInput"
+        placeholder="Contraseña"
+        required
+        autocomplete="off"
+      />
+      <button type="submit">Acceder</button>
+    </form>
+    <p class="error-msg" id="loginError"></p>
+  </div>
+
+  <!-- Admin Panel -->
+  <div class="admin-panel" id="adminPanel">
+    <h1>🎛️ BRS 100 Palabras</h1>
+
+    <div class="control-section">
+      <h2>Estado del Módulo</h2>
+      <div class="toggle-container">
+        <label class="toggle-switch">
+          <input type="checkbox" id="moduleToggle" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="status" id="statusText">Desactivado</div>
+      <p id="statusDescription" style="font-size: 0.9rem; margin: 0;">
+        El módulo está desactivado
+      </p>
+    </div>
+
+    <button class="logout-btn" id="logoutBtn">Cerrar Sesión</button>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const ADMIN_PASSWORD = "admin123";
+
+    let isAuthenticated = false;
+
+    // ========== AUTHENTICATION ==========
+    function checkAuth() {
+      const token = sessionStorage.getItem("admin_token");
+      if (token) {
+        isAuthenticated = true;
+        showAdminPanel();
+        loadConfig();
+      } else {
+        showLoginModal();
+      }
+    }
+
+    function showLoginModal() {
+      document.getElementById("loginModal").classList.remove("hidden");
+      document.getElementById("adminPanel").classList.remove("visible");
+    }
+
+    function showAdminPanel() {
+      document.getElementById("adminPanel").classList.add("visible");
+      document.getElementById("loginModal").classList.add("hidden");
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const password = document.getElementById("passwordInput").value;
+
+      if (password === ADMIN_PASSWORD) {
+        sessionStorage.setItem("admin_token", "valid");
+        isAuthenticated = true;
+        document.getElementById("passwordInput").value = "";
+        document.getElementById("loginError").textContent = "";
+        showAdminPanel();
+        loadConfig();
+        showToast("✓ Acceso concedido", "success");
+      } else {
+        document.getElementById("loginError").textContent = "Contraseña incorrecta";
+        showToast("✗ Contraseña incorrecta", "error");
+      }
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      sessionStorage.removeItem("admin_token");
+      isAuthenticated = false;
+      showLoginModal();
+      showToast("Sesión cerrada", "success");
+    });
+
+    // ========== CONFIG MANAGEMENT ==========
+    let config = null;
+
+    async function loadConfig() {
+      try {
+        const response = await fetch("/api/config/brs100palabras");
+        config = await response.json();
+        updateUI();
+      } catch (error) {
+        console.error("Error loading config:", error);
+        showToast("Error al cargar configuración", "error");
+      }
+    }
+
+    function updateUI() {
+      const toggle = document.getElementById("moduleToggle");
+      const statusText = document.getElementById("statusText");
+      const statusDesc = document.getElementById("statusDescription");
+
+      toggle.checked = config.enabled;
+
+      if (config.enabled) {
+        statusText.textContent = "✓ Activo";
+        statusText.classList.remove("inactive");
+        statusText.classList.add("active");
+        statusDesc.textContent = "El módulo BRS 100 Palabras está habilitado";
+      } else {
+        statusText.textContent = "✗ Desactivado";
+        statusText.classList.remove("active");
+        statusText.classList.add("inactive");
+        statusDesc.textContent = "El módulo BRS 100 Palabras está deshabilitado";
+      }
+    }
+
+    document.getElementById("moduleToggle").addEventListener("change", async (e) => {
+      config.enabled = e.target.checked;
+      config.lastModified = new Date().toISOString();
+
+      try {
+        const response = await fetch("/api/config/brs100palabras", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(config),
+        });
+
+        if (!response.ok) throw new Error("Failed to save");
+
+        updateUI();
+        showToast(
+          config.enabled ? "✓ Módulo activado" : "✓ Módulo desactivado",
+          "success"
+        );
+      } catch (error) {
+        console.error("Error saving config:", error);
+        showToast("Error al guardar cambios", "error");
+        e.target.checked = !e.target.checked;
+      }
+    });
+
+    // ========== TOAST NOTIFICATIONS ==========
+    function showToast(message, type = "info") {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.className = `toast ${type} show`;
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+
+    // ========== INIT ==========
+    document.addEventListener("DOMContentLoaded", checkAuth);
+  </script>
+</body>
+</html>

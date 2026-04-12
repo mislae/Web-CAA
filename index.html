@@ -2088,10 +2088,18 @@
             }
         });
 
-        // 6. REGISTER SERVICE WORKER (si disponible)
+        // 6. SERVICE WORKER
+        // En localhost desregistramos SW para evitar cache viejo durante cambios de configuración.
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js')
-                .catch(() => {});
+            const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            if (isLocalhost) {
+                navigator.serviceWorker.getRegistrations()
+                    .then((regs) => Promise.all(regs.map((reg) => reg.unregister())))
+                    .catch(() => {});
+            } else {
+                navigator.serviceWorker.register('service-worker.js')
+                    .catch(() => {});
+            }
         }
 
         // Cerrar modal al hacer click en overlay
@@ -2099,11 +2107,22 @@
             if (e.target && e.target.id === 'modalPopup') cerrarModal();
         });
 
-        // Mostrar popup BRS 100 Palabras solo al entrar al home
-        function showBRS100PopupOnHome() {
+        // Mostrar popup BRS 100 Palabras solo al entrar al home y si el módulo está habilitado.
+        async function showBRS100PopupOnHome() {
             const popup = document.getElementById('brs100Popup');
             const closeBtn = document.getElementById('brs100PopupClose');
             if (!popup) return;
+
+            let brsEnabled = true;
+            try {
+                const response = await fetch('/api/config/brs100palabras', { cache: 'no-store' });
+                if (response.ok) {
+                    const config = await response.json();
+                    brsEnabled = config && config.enabled !== false;
+                }
+            } catch (_error) {
+                brsEnabled = true;
+            }
 
             const closePopup = () => {
                 popup.classList.remove('active');
@@ -2119,7 +2138,7 @@
             const isHomePath = path === '/' || path.endsWith('/index.html');
             const isHomeHash = hash === '' || hash === '#inicio';
 
-            if (isHomePath && isHomeHash) {
+            if (brsEnabled && isHomePath && isHomeHash) {
                 popup.classList.add('active');
                 popup.setAttribute('aria-hidden', 'false');
             } else {

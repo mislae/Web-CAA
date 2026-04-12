@@ -2,10 +2,8 @@
 // SERVICE WORKER - Caching y Offline
 // ========================================
 
-const CACHE_NAME = 'caa-brs-v9';
+const CACHE_NAME = 'caa-brs-v10';
 const ASSETS_TO_CACHE = [
-    '/',
-    '/index.html',
     '/css/tailwind.css',
     '/Images/Galeria/imagen_grupo-bg-1280.webp',
     '/manifest.json',
@@ -59,6 +57,12 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
+    // No cachear documentos HTML para evitar servir vistas obsoletas.
+    if (request.destination === 'document') {
+        event.respondWith(fetch(request));
+        return;
+    }
+
     // Network first, fallback a cache
     event.respondWith(
         fetch(request)
@@ -77,11 +81,11 @@ self.addEventListener('fetch', (event) => {
                         if (cachedResponse) {
                             return cachedResponse;
                         }
-                        
-                        // Si no está en cache y es navegación local, retornar home offline
-                        if (request.destination === 'document') {
-                            return caches.match('/index.html');
-                        }
+
+                        return new Response('Sin conexion', {
+                            status: 503,
+                            statusText: 'Offline'
+                        });
                     });
             })
     );
