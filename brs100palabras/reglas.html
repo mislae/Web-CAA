@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRS en 100 Palabras | Reglas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --wine-900: #4d0f1b;
+      --wine-700: #7f1626;
+      --cream-100: #f8f4ea;
+      --ink: #2f1820;
+      --ink-soft: #5f4550;
+      --ok-bg: #fff6f7;
+      --line: #ecd4d9;
+      --blue-900: #0f315f;
+      --blue-800: #184579;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Montserrat", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 6%, rgba(255, 190, 196, 0.45) 0%, transparent 35%),
+        radial-gradient(circle at 88% 92%, rgba(168, 198, 255, 0.4) 0%, transparent 32%),
+        linear-gradient(155deg, #f7efe2 0%, #f5e8ec 45%, #e9edf6 100%);
+      padding: clamp(12px, 2.8vw, 28px);
+      display: grid;
+      place-items: center;
+    }
+
+    .rules-card {
+      width: min(920px, 100%);
+      background: var(--cream-100);
+      border: 2px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 42px rgba(0, 0, 0, 0.14);
+    }
+
+    .rules-head {
+      padding: clamp(18px, 3.2vw, 34px) clamp(14px, 4.5vw, 40px);
+      background: linear-gradient(180deg, var(--wine-700) 0%, var(--wine-900) 100%);
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .rules-head h1 {
+      margin: 0;
+      font-size: clamp(24px, 4.4vw, 46px);
+      letter-spacing: 0.01em;
+      line-height: 1.08;
+    }
+
+    .rules-head p {
+      margin: 10px auto 0;
+      max-width: 48ch;
+      font-size: clamp(14px, 1.9vw, 20px);
+      opacity: 0.95;
+      line-height: 1.45;
+    }
+
+    .rules-body {
+      padding: clamp(14px, 3.2vw, 30px);
+      display: grid;
+      gap: clamp(10px, 2vw, 14px);
+    }
+
+    .rule-item {
+      margin: 0;
+      background: var(--ok-bg);
+      border: 1px solid #f0dce0;
+      border-left: 7px solid var(--wine-700);
+      border-radius: 14px;
+      padding: clamp(12px, 2.2vw, 18px);
+      line-height: 1.55;
+      font-size: clamp(15px, 1.8vw, 22px);
+      color: var(--ink);
+    }
+
+    .rule-item strong {
+      color: var(--wine-900);
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      border-radius: 12px;
+      font-size: clamp(16px, 2vw, 22px);
+      text-decoration: none;
+      font-weight: 800;
+      transition: transform 0.16s ease, box-shadow 0.18s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+      outline: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, var(--blue-800) 0%, var(--blue-900) 100%);
+      color: #edf3ff;
+    }
+
+    .btn-ghost {
+      border: 2px solid rgba(77, 15, 27, 0.25);
+      color: var(--wine-900);
+      background: #fff9f9;
+    }
+
+    @media (max-width: 760px) {
+      .actions {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="rules-card">
+    <header class="rules-head">
+      <h1>Reglas del Concurso</h1>
+      <p>BRS en 100 Palabras</p>
+    </header>
+
+    <section class="rules-body">
+      <p class="rule-item"><strong>1.</strong> Debe tener entre 90 y 100 palabras sin contar el titulo.</p>
+      <p class="rule-item"><strong>2.</strong> Debe hablar sobre la vida en el BRS.</p>
+      <p class="rule-item"><strong>3.</strong> Los cuentos deben ser ineditos (no publicados antes) y creados 100% por el alumno. (Si se detecta uso de inteligencia artificial el relato sera descalificado).</p>
+      <p class="rule-item"><strong>4.</strong> Los relatos deben respetar la sana convivencia escolar. No se aceptaran relatos que contengan lenguaje ofensivo, discriminatorio o que promuevan el odio hacia cualquier miembro de la comunidad o grupo social.</p>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="participa.html">Volver a Participa</a>
+        <a class="btn btn-ghost" href="/index.html">Ir al Inicio Principal</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
