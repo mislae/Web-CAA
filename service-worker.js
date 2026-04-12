@@ -2,7 +2,7 @@
 // SERVICE WORKER - Caching y Offline
 // ========================================
 
-const CACHE_NAME = 'caa-brs-v7';
+const CACHE_NAME = 'caa-brs-v8';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
@@ -55,8 +55,8 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         fetch(request)
             .then((response) => {
-                // Si es exitosa, cachearla
-                if (response.status === 200) {
+                // Si es exitosa, cachearla (excepto documentos HTML para evitar vistas antiguas)
+                if (response.status === 200 && request.destination !== 'document') {
                     const cache = caches.open(CACHE_NAME);
                     cache.then((c) => c.put(request, response.clone()));
                 }

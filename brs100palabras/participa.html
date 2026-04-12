@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRS en 100 Palabras | Participa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --wine-900: #4d0f1b;
+      --wine-700: #7f1626;
+      --cream-100: #f8f4ea;
+      --ink: #4d121a;
+      --ink-soft: #6b3a44;
+      --blue-900: #0f315f;
+      --blue-800: #184579;
+      --coral-600: #ff4b4b;
+      --coral-500: #ff5f5f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: clamp(12px, 3vw, 28px);
+      font-family: "Montserrat", sans-serif;
+      background:
+        radial-gradient(circle at 9% 6%, rgba(255, 173, 173, 0.35) 0%, transparent 30%),
+        radial-gradient(circle at 94% 88%, rgba(182, 211, 255, 0.35) 0%, transparent 38%),
+        linear-gradient(148deg, #f7efe2 0%, #f6e9eb 46%, #ebeef6 100%);
+      color: var(--ink);
+    }
+
+    .panel {
+      width: min(860px, 100%);
+      border-radius: 24px;
+      background: var(--cream-100);
+      border: 2px solid #e9d6d6;
+      box-shadow: 0 22px 46px rgba(0, 0, 0, 0.16);
+      padding: clamp(16px, 3.2vw, 36px);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 4.3vw, 46px);
+      color: var(--wine-900);
+      text-align: center;
+    }
+
+    p {
+      margin: 12px auto 0;
+      font-size: clamp(15px, 2.1vw, 22px);
+      color: var(--ink-soft);
+      line-height: 1.45;
+      text-align: center;
+      max-width: 38ch;
+    }
+
+    .actions {
+      margin-top: clamp(16px, 3vw, 30px);
+      display: grid;
+      gap: clamp(10px, 2vw, 14px);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: clamp(54px, 8vw, 70px);
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      padding: 10px 16px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: clamp(17px, 2.3vw, 25px);
+      letter-spacing: 0.01em;
+      transition: transform 0.16s ease, box-shadow 0.18s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+      outline: none;
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, var(--coral-500) 0%, var(--coral-600) 100%);
+      color: #fff5f5;
+    }
+
+    .btn-secondary {
+      background: linear-gradient(180deg, var(--blue-800) 0%, var(--blue-900) 100%);
+      color: #f1f6ff;
+    }
+
+    .upload-block {
+      margin-top: 6px;
+      padding: clamp(10px, 2.2vw, 18px);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(127, 22, 38, 0.08) 0%, rgba(77, 15, 27, 0.07) 100%);
+      border: 1px solid rgba(77, 15, 27, 0.14);
+    }
+
+    .upload-title {
+      margin: 0 0 10px;
+      text-align: center;
+      color: var(--wine-900);
+      font-weight: 800;
+      font-size: clamp(15px, 1.8vw, 19px);
+    }
+
+    .upload-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .back-link {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .back-link a {
+      color: var(--wine-900);
+      font-weight: 700;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 760px) {
+      .upload-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="panel">
+    <h1>BRS en 100 Palabras</h1>
+    <p>Selecciona una opción para participar en el concurso.</p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="rubrica-brs-100-palabras.pdf" download="Rubrica-BRS-100-Palabras.pdf">Descargar Rubrica</a>
+      <a class="btn btn-secondary" href="reglas.html">Abrir Reglas</a>
+
+      <div class="upload-block">
+        <p class="upload-title">Sube tu cuento</p>
+        <div class="upload-grid">
+          <a id="uploadMiddleBtn" class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSc9xBC2Z3gDInXteScVlYjoy2y9cApcDCgGOnrNoFIDrWlmlg/viewform?usp=dialog">Sube tu cuento - Middle</a>
+          <a id="uploadSeniorBtn" class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSdZ3Yh3rWUhVrLD9WMhEIvGqGv5hnTqPCv9d4guPByo4BNN-w/viewform?usp=header">Sube tu cuento - Senior</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="back-link"><a href="/index.html">Volver al inicio</a></p>
+  </section>
+
+  <script>
+    (function makeUploadLinksReliable() {
+      const middle = document.getElementById('uploadMiddleBtn');
+      const senior = document.getElementById('uploadSeniorBtn');
+      [middle, senior].forEach((link) => {
+        if (!link) return;
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          window.location.assign(link.href);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

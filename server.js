@@ -152,7 +152,16 @@ app.use('/Images', express.static(uploadsDir, {
 // Cache moderado para otros archivos (1 día)
 app.use(express.static(path.join(__dirname), { 
   maxAge: '1d', 
-  etag: true 
+  etag: true,
+  setHeaders: (res, filePath) => {
+    if (path.extname(filePath).toLowerCase() === '.html') {
+      // Evita que vistas HTML queden obsoletas durante desarrollo y cambios frecuentes.
+      res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      res.set('Pragma', 'no-cache');
+      res.set('Expires', '0');
+      res.set('Surrogate-Control', 'no-store');
+    }
+  }
 }));
 
 // Manejo de errores

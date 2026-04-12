@@ -454,10 +454,266 @@
             z-index: 10000;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
+
+        /* Popup BRS en 100 Palabras */
+        .brs100-overlay {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(12, 15, 22, 0.52);
+            backdrop-filter: blur(6px);
+            z-index: 10020;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .brs100-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .brs100-card {
+            width: min(860px, 100%);
+            border-radius: 1.6rem;
+            background: #f8f4ea;
+            box-shadow: 0 26px 46px rgba(0, 0, 0, 0.34);
+            overflow: hidden;
+            position: relative;
+            transform: translateY(16px) scale(0.97);
+            opacity: 0;
+            transition: transform 0.28s ease, opacity 0.28s ease;
+        }
+
+        .brs100-overlay.active .brs100-card {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .brs100-ribbon {
+            width: min(560px, calc(100% - 108px));
+            margin: 0 auto;
+            padding: 0.9rem 1rem;
+            border-radius: 0 0 1.1rem 1.1rem;
+            background: linear-gradient(180deg, #7f1626 0%, #4d0f1b 100%);
+            box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.14);
+        }
+
+        .brs100-ribbon h3 {
+            margin: 0;
+            color: #ffffff;
+            text-align: center;
+            font-size: clamp(1.9rem, 4vw, 3.1rem);
+            line-height: 1.05;
+            letter-spacing: 0.03em;
+            font-weight: 900;
+        }
+
+        .brs100-close-visual {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            z-index: 5;
+            display: grid;
+            place-items: center;
+            padding: 0;
+            width: 2.65rem;
+            height: 2.65rem;
+            appearance: none;
+            border: 2px solid rgba(77, 18, 26, 0.28);
+            border-radius: 999px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+            background: #ffffff;
+            color: #4d121a;
+            font-size: 2rem;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 900;
+            line-height: 1;
+            cursor: pointer;
+            transition: transform 0.16s ease, background-color 0.16s ease;
+        }
+
+        .brs100-close-visual:hover,
+        .brs100-close-visual:focus-visible {
+            transform: scale(1.06);
+            background: #ffe9e9;
+            outline: none;
+        }
+
+        .brs100-close-visual:active {
+            transform: scale(0.97);
+        }
+
+        .brs100-content {
+            padding: 1.1rem 2.7rem 2.5rem;
+            text-align: center;
+        }
+
+        .brs100-content h4 {
+            margin: 0.6rem 0 1.2rem;
+            color: #4d121a;
+            font-size: clamp(2rem, 4.4vw, 4rem);
+            font-weight: 900;
+            letter-spacing: 0.01em;
+        }
+
+        .brs100-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .brs100-box {
+            min-height: 150px;
+            border-radius: 1.1rem;
+            background: linear-gradient(165deg, #184579 0%, #0f315f 100%);
+            color: #f1f6ff;
+            display: grid;
+            align-content: center;
+            justify-items: center;
+            gap: 0.45rem;
+            box-shadow: 0 12px 20px rgba(15, 49, 95, 0.34);
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .brs100-icon {
+            font-size: clamp(1.9rem, 3vw, 3rem);
+            line-height: 1;
+        }
+
+        .brs100-box span:last-child {
+            font-size: clamp(1.2rem, 2.1vw, 2rem);
+            font-weight: 800;
+        }
+
+        .brs100-divider {
+            width: min(430px, 86%);
+            height: 2px;
+            margin: 1.3rem auto;
+            background: #6b4d4f;
+            opacity: 0.72;
+        }
+
+        .brs100-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 340px;
+            min-height: 74px;
+            padding: 0.55rem 1.5rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            color: #fff5f5;
+            font-size: clamp(1.7rem, 3.4vw, 3.1rem);
+            font-weight: 900;
+            letter-spacing: 0.02em;
+            background: linear-gradient(180deg, #ff5f5f 0%, #ff4b4b 100%);
+            box-shadow: 0 12px 26px rgba(255, 91, 91, 0.52), 0 0 20px rgba(255, 116, 116, 0.42);
+            transition: transform 0.18s ease, box-shadow 0.2s ease;
+        }
+
+        .brs100-cta:hover,
+        .brs100-cta:focus-visible {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 16px 30px rgba(255, 89, 89, 0.56), 0 0 30px rgba(255, 109, 109, 0.55);
+            outline: none;
+        }
+
+        .brs100-cta:active {
+            transform: translateY(1px) scale(0.995);
+        }
+
+        @media (max-width: 900px) {
+            .brs100-ribbon {
+                width: calc(100% - 42px);
+            }
+
+            .brs100-content {
+                padding: 0.8rem 1.1rem 1.7rem;
+            }
+
+            .brs100-close-visual {
+                top: 0.55rem;
+                right: 0.55rem;
+                width: 2.3rem;
+                height: 2.3rem;
+                font-size: 1.65rem;
+            }
+
+            .brs100-box {
+                min-height: 118px;
+            }
+
+            .brs100-cta {
+                min-width: 270px;
+                min-height: 66px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .brs100-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brs100-box {
+                min-height: 92px;
+                border-radius: 0.9rem;
+            }
+
+            .brs100-icon {
+                font-size: 2rem;
+            }
+
+            .brs100-cta {
+                width: 100%;
+                min-width: 0;
+                border-radius: 0.9rem;
+                font-size: clamp(1.8rem, 8vw, 2.4rem);
+            }
+        }
     </style>
 </head>
 <body class="font-sans bg-background min-h-screen">
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <div id="brs100Popup" class="brs100-overlay" role="dialog" aria-modal="true" aria-labelledby="brs100Title" aria-hidden="true">
+        <section class="brs100-card">
+            <header class="brs100-ribbon">
+                <h3 id="brs100Title">BRS EN 100 PALABRAS</h3>
+            </header>
+
+            <button id="brs100PopupClose" class="brs100-close-visual" type="button" aria-label="Cerrar popup BRS en 100 palabras">&#10005;</button>
+
+            <div class="brs100-content">
+                <h4>&iquest;C&Oacute;MO PARTICIPAR?</h4>
+
+                <div class="brs100-grid" aria-hidden="true">
+                    <div class="brs100-box">
+                        <span class="brs100-icon">&#128203;</span>
+                        <span>R&Uacute;BRICA</span>
+                    </div>
+                    <div class="brs100-box">
+                        <span class="brs100-icon">&#128220;</span>
+                        <span>REGLAS</span>
+                    </div>
+                    <div class="brs100-box">
+                        <span class="brs100-icon">&#10548;</span>
+                        <span>SUBE EL TUYO</span>
+                    </div>
+                </div>
+
+                <div class="brs100-divider" aria-hidden="true"></div>
+
+                <a class="brs100-cta" href="/brs100palabras/participa.html?v=20260412">&iexcl;ENTRA AQU&Iacute;! &#8594;</a>
+            </div>
+        </section>
+    </div>
     
     <!-- Modal Popup para confirmación de envío -->
     <div id="modalPopup" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalMessage">
@@ -1842,6 +2098,37 @@
         document.getElementById('modalPopup')?.addEventListener('click', (e) => {
             if (e.target && e.target.id === 'modalPopup') cerrarModal();
         });
+
+        // Mostrar popup BRS 100 Palabras solo al entrar al home
+        function showBRS100PopupOnHome() {
+            const popup = document.getElementById('brs100Popup');
+            const closeBtn = document.getElementById('brs100PopupClose');
+            if (!popup) return;
+
+            const closePopup = () => {
+                popup.classList.remove('active');
+                popup.setAttribute('aria-hidden', 'true');
+            };
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closePopup);
+            }
+
+            const path = (window.location.pathname || '').toLowerCase();
+            const hash = (window.location.hash || '').toLowerCase();
+            const isHomePath = path === '/' || path.endsWith('/index.html');
+            const isHomeHash = hash === '' || hash === '#inicio';
+
+            if (isHomePath && isHomeHash) {
+                popup.classList.add('active');
+                popup.setAttribute('aria-hidden', 'false');
+            } else {
+                popup.classList.remove('active');
+                popup.setAttribute('aria-hidden', 'true');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', showBRS100PopupOnHome);
 
     </script>
 </body>

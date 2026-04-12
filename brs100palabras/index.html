@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRS en 100 Palabras | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="home-shell" aria-hidden="true">
+    <aside class="left-menu">
+      <div class="logo-block">
+        <h1>CAA BRS</h1>
+        <p>Centro de Alumnos</p>
+      </div>
+      <nav>
+        <ul>
+          <li class="active">Inicio</li>
+          <li>Galeria</li>
+          <li>Calendario</li>
+          <li>Intercurso</li>
+          <li>Nuestras Propuestas</li>
+          <li>Enviar Propuesta</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <section class="hero-area">
+      <h2>CAA BRS 2026</h2>
+      <div class="hero-card"></div>
+    </section>
+  </main>
+
+  <div class="popup-overlay" id="popupOverlay" role="dialog" aria-modal="true" aria-labelledby="popupTitle" aria-hidden="true">
+    <section class="popup-card">
+      <header class="popup-ribbon">
+        <h3 id="popupTitle">BRS EN 100 PALABRAS</h3>
+      </header>
+
+      <button class="popup-close" id="popupClose" type="button" aria-label="Cerrar popup">&#10005;</button>
+
+      <div class="popup-content">
+        <h4>&iquest;C&Oacute;MO PARTICIPAR?</h4>
+
+        <div class="info-grid">
+          <div class="info-box">
+            <span class="info-icon">&#128203;</span>
+            <span>R&Uacute;BRICA</span>
+          </div>
+          <div class="info-box">
+            <span class="info-icon">&#128220;</span>
+            <span>REGLAS</span>
+          </div>
+          <div class="info-box">
+            <span class="info-icon">&#10548;</span>
+            <span>SUBE EL TUYO</span>
+          </div>
+        </div>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <a class="cta-enter" href="participa.html?v=20260412">&iexcl;ENTRA AQU&Iacute;! &#8594;</a>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
