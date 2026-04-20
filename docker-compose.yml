@@ -16,6 +16,12 @@ services:
       - SMTP_SECURE=${SMTP_SECURE:-false}
     volumes:
       - credencial_data:/app/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3000/', (r) => process.exit(r.statusCode < 500 ? 0 : 1)).on('error', () => process.exit(1));"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
 
   web:
     build: .
@@ -24,10 +30,33 @@ services:
       - credencial
     environment:
       - PORT=80
+      - PROPOSAL_RECIPIENT=${PROPOSAL_RECIPIENT:-misla@alumnos.brs.cl}
+      - MAIL_FROM=${MAIL_FROM:-}
+      - SMTP_HOST=${SMTP_HOST:-}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_USER=${SMTP_USER:-}
+      - SMTP_PASS=${SMTP_PASS:-}
+      - SMTP_SECURE=${SMTP_SECURE:-false}
+      - PROPOSAL_PB_URL=${PROPOSAL_PB_URL:-}
+      - PROPOSAL_PB_ADMIN_EMAIL=${PROPOSAL_PB_ADMIN_EMAIL:-}
+      - PROPOSAL_PB_ADMIN_PASSWORD=${PROPOSAL_PB_ADMIN_PASSWORD:-}
+      - PROPOSAL_PB_TOKEN=${PROPOSAL_PB_TOKEN:-}
+      - PROPOSAL_PB_COLLECTION=${PROPOSAL_PB_COLLECTION:-proposals}
+      - PROPOSAL_STATUS_TOKEN=${PROPOSAL_STATUS_TOKEN:-}
+      - PROPOSAL_EMERGENCY_RECIPIENT=${PROPOSAL_EMERGENCY_RECIPIENT:-islamartin312@gmail.com}
+      - TRUST_PROXY_HOPS=${TRUST_PROXY_HOPS:-1}
     ports:
       - "80:80"
     volumes:
       - web_images:/app/Images
+      - web_data:/app/data
+      - web_config:/app/config
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:80/', (r) => process.exit(r.statusCode < 500 ? 0 : 1)).on('error', () => process.exit(1));"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
 
   tunnel:
     image: cloudflare/cloudflared:latest
@@ -37,3 +66,5 @@ services:
 volumes:
   credencial_data:
   web_images:
+  web_data:
+  web_config:

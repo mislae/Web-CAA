@@ -8,6 +8,8 @@
     "dev": "node server.js",
     "test": "node -e \"console.log('Sin pruebas automatizadas configuradas')\"",
     "lint": "node --check server.js && node --check service-worker.js",
+    "proposals:replay": "node scripts/replay-proposals-inbox.js",
+    "proposals:replay:dry": "node scripts/replay-proposals-inbox.js --dry-run",
     "build:css": "tailwindcss -i css/input.css -o css/tailwind.css --minify",
     "watch:css": "tailwindcss -i css/input.css -o css/tailwind.css --watch"
   },
@@ -27,7 +29,8 @@
     "express": "^4.18.0",
     "express-rate-limit": "^7.3.0",
     "helmet": "^7.1.0",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.10.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.24",
@@ -35,7 +38,7 @@
     "tailwindcss": "^3.4.19"
   },
   "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.0.0"
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   }
 }

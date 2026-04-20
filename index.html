@@ -432,6 +432,17 @@
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
+        
+        @keyframes slideIn {
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(400px); opacity: 0; }
+        }
+        
         /* Accesibilidad: enlace para saltar al contenido */
         .skip-link {
             position: absolute;
@@ -1229,7 +1240,7 @@
                         </div>
 
                         <!-- Formulario de propuestas -->
-                        <form id="formPropuesta" class="space-y-6">
+                        <form id="formPropuesta" class="space-y-6" action="/api/propuestas" method="post" onsubmit="return enviarPropuesta(event)">
                             <div>
                                 <label for="propuestaTitulo" class="block text-sm font-medium text-gray-700 mb-2">
                                     Título de la propuesta <span class="text-red-500">*</span>
@@ -1285,15 +1296,9 @@
                                 />
                             </div>
 
-                            <!-- FormSubmit Configuration -->
-                            <input type="hidden" name="_subject" value="Nueva Propuesta del Portal CAA BRS">
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_template" value="table">
-
                             <div class="flex gap-3 flex-col sm:flex-row">
                                 <button 
-                                    type="button"
-                                    onclick="enviarPropuesta()"
+                                    type="submit"
                                     class="flex-1 bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-all shadow-lg min-h-11"
                                 >
                                     Enviar Propuesta
@@ -1554,9 +1559,28 @@
         });
 
         // ================== PROPUESTAS ==================
+
+        async function postProposalWithTimeout(url, options = {}, timeoutMs = 15000) {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+            try {
+                const response = await fetch(url, {
+                    ...options,
+                    signal: controller.signal,
+                    credentials: 'same-origin',
+                    keepalive: true
+                });
+                return response;
+            } finally {
+                clearTimeout(timeoutId);
+            }
+        }
         
         // Enviar propuesta desde el formulario público
-        function enviarPropuesta() {
+        async function enviarPropuesta(event) {
+            if (event) event.preventDefault();
+
+            const form = document.getElementById('formPropuesta');
             const titulo = document.getElementById('propuestaTitulo').value.trim();
             const descripcion = document.getElementById('propuestaDescripcion').value.trim();
             const autor = document.getElementById('propuestaAutor').value.trim() || 'Anónimo';
@@ -1567,6 +1591,10 @@
                 mostrarPopup('Error', 'Por favor completa los campos obligatorios: Título y Descripción', false);
                 return false;
             }
+            
+            const bottonEnviar = form.querySelector('button[type="submit"]');
+            bottonEnviar.disabled = true;
+            bottonEnviar.textContent = 'Enviando...';
             
             // Guardar en localStorage
             const propuesta = {
@@ -1583,44 +1611,99 @@
             propuestas.push(propuesta);
             localStorage.setItem('propuestas', JSON.stringify(propuestas));
             
-            // Preparar formulario para FormSubmit
-            const formData = new FormData();
-            formData.append('titulo', titulo);
-            formData.append('descripcion', descripcion);
-            formData.append('autor', autor);
-            formData.append('curso', curso);
-            formData.append('_subject', `Nueva Propuesta: ${titulo}`);
-            formData.append('_captcha', 'false');
-            formData.append('_template', 'table');
-            formData.append('mensaje', `TÍTULO: ${titulo}\n\nDESCRIPCIÓN:\n${descripcion}\n\nAUTOR: ${autor}\nCURSO: ${curso}\nFECHA: ${new Date().toLocaleString('es-CL')}`);
-            
-            // Enviar a FormSubmit
-            fetch('https://formsubmit.co/misla@alumnos.brs.cl', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json'
-                },
-                body: formData
-            })
-            .then(response => {
-                    if (response.ok) {
-                        // Si el status es 200-299, consideramos éxito
-                mostrarPopup('¡Propuesta Enviada!', 'Tu propuesta ha sido enviada exitosamente y será revisada por el Centro de Alumnos.', true);
-                document.getElementById('formPropuesta').reset();
-                        return response.json().catch(() => ({})); // Ignorar errores de JSON
+            // Enviar al servidor
+            try {
+                const dataToSend = {
+                    titulo,
+                    descripcion,
+                    autor,
+                    curso
+                };
+                
+                console.log('Enviando propuesta:', dataToSend);
+
+                // Intento 1: JSON (flujo principal)
+                let response = await postProposalWithTimeout('/api/propuestas', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dataToSend)
+                });
+
+                // Intento 2: form-urlencoded (más compatible con proxies/WAF viejos)
+                if (!response.ok) {
+                    const fallbackPayload = new URLSearchParams(dataToSend).toString();
+                    response = await postProposalWithTimeout('/api/propuestas', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                        },
+                        body: fallbackPayload
+                    });
+                }
+
+                console.log('Respuesta status:', response.status);
+                
+                const result = await response.json();
+                console.log('Respuesta JSON:', result);
+
+                if (!response.ok) {
+                    throw new Error(result.error || result.message || `Error ${response.status}`);
+                }
+
+                // Limpiar formulario solo si el envío fue exitoso
+                form.reset();
+                const toastType = result && result.queued ? 'info' : 'success';
+                mostrarToastRapido(result.message || 'Propuesta enviada correctamente', toastType);
+                
+            } catch (error) {
+                console.error('Error completo:', error);
+
+                // Intento 3: sendBeacon como último recurso para navegadores embebidos (ej: Instagram)
+                try {
+                    const beaconPayload = JSON.stringify({ titulo, descripcion, autor, curso });
+                    const beaconBlob = new Blob([beaconPayload], { type: 'text/plain;charset=UTF-8' });
+                    const beaconSent = !!(navigator.sendBeacon && navigator.sendBeacon('/api/propuestas', beaconBlob));
+
+                    if (beaconSent) {
+                        form.reset();
+                        mostrarToastRapido('Propuesta enviada en modo compatibilidad. Verificaremos entrega automáticamente.', 'info');
                     } else {
-                        throw new Error('Error en la respuesta del servidor');
+                        mostrarToastRapido(`✗ Error: ${error.message}`, 'error');
                     }
-            })
-            .catch(error => {
-                    // Solo mostrar error si el formulario no se reseteo
-                    const form = document.getElementById('formPropuesta');
-                    if (form && form.querySelector('input[name="titulo"]').value !== '') {
-                        mostrarPopup('Error de conexión', 'No se pudo conectar con el servidor. Verifica tu conexión a internet e intenta nuevamente.', false);
-                    }
-            });
+                } catch (_beaconError) {
+                    mostrarToastRapido(`✗ Error: ${error.message}`, 'error');
+                }
+            } finally {
+                bottonEnviar.disabled = false;
+                bottonEnviar.textContent = 'Enviar Propuesta';
+            }
             
             return false;
+        }
+        
+        // Nueva función para notificaciones rápidas - no bloquean UI
+        function mostrarToastRapido(mensaje, tipo = 'info') {
+            const toast = document.createElement('div');
+            const colors = {
+                success: 'bg-green-500 text-white',
+                error: 'bg-red-500 text-white',
+                info: 'bg-blue-500 text-white'
+            };
+            
+            toast.className = `fixed top-6 right-6 ${colors[tipo]} px-6 py-3 rounded-lg shadow-2xl z-50 animate-bounce text-sm font-medium`;
+            toast.textContent = mensaje;
+            document.body.appendChild(toast);
+            
+            // Animar entrada
+            toast.style.animation = 'slideIn 0.3s ease-out';
+            
+            // Auto-eliminar después de 2 segundos
+            setTimeout(() => {
+                toast.style.animation = 'slideOut 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
         }
         
         // Funciones para el modal popup con manejo de foco y teclado
@@ -1666,11 +1749,11 @@
             }
             modal.addEventListener('keydown', handleKeydown, { once: true });
             
-            // Auto-cerrar después de 5 segundos si es éxito
+            // Auto-cerrar después de 1.5 segundos si es éxito (optimizado para mayor velocidad)
             if (esExito) {
                 setTimeout(() => {
                     cerrarModal();
-                }, 5000);
+                }, 1500);
             }
         }
         
