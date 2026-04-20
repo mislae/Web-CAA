@@ -1654,8 +1654,7 @@
 
                 // Limpiar formulario solo si el envío fue exitoso
                 form.reset();
-                const toastType = result && result.queued ? 'info' : 'success';
-                mostrarToastRapido(result.message || 'Propuesta enviada correctamente', toastType);
+                mostrarToastRapido(result.message || 'Propuesta enviada', 'success');
                 
             } catch (error) {
                 console.error('Error completo:', error);

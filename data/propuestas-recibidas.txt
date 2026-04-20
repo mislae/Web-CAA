@@ -56,3 +56,87 @@ Estado: Enviado
 Descripcion:
 Verificar que dice Enviado
 
+----------------------------------------
+Fecha: 2026-04-20T18:11:33.011Z
+ID: 1776708693009-0a8748
+Titulo: pr
+Autor: Anónimo
+Curso: No especificado
+IP: 200.104.187.14
+Estado: Enviado
+
+Descripcion:
+pr
+
+----------------------------------------
+Fecha: 2026-04-20T18:13:51.105Z
+ID: 1776708831033-cb2d38
+Titulo: Verificar copy final
+Autor: QA
+Curso: UI
+IP: 172.18.0.1
+Estado: Enviado
+
+Descripcion:
+Sin cola
+
+----------------------------------------
+Fecha: 2026-04-20T18:13:56.555Z
+ID: 1776708836553-41654c
+Titulo: Verificar copy final 2
+Autor: QA
+Curso: UI
+IP: 172.18.0.1
+Estado: Enviado
+
+Descripcion:
+Sin cola
+
+----------------------------------------
+Fecha: 2026-04-20T18:14:24.317Z
+ID: 1776708864316-42f6a6
+Titulo: pr
+Autor: Anónimo
+Curso: No especificado
+IP: 200.104.187.14
+Estado: Enviado
+
+Descripcion:
+pr
+
+----------------------------------------
+Fecha: 2026-04-20T18:15:38.965Z
+ID: 1776708938895-83e337
+Titulo: Check final
+Autor: QA
+Curso: UI
+IP: 172.18.0.1
+Estado: Enviado
+
+Descripcion:
+mensaje unico
+
+----------------------------------------
+Fecha: 2026-04-20T18:15:46.618Z
+ID: 1776708946617-7a9770
+Titulo: Check final 2
+Autor: QA
+Curso: UI
+IP: 172.18.0.1
+Estado: Enviado
+
+Descripcion:
+mensaje unico
+
+----------------------------------------
+Fecha: 2026-04-20T18:16:44.987Z
+ID: 1776709004985-056890
+Titulo: pr2
+Autor: Anónimo
+Curso: No especificado
+IP: 200.104.187.14
+Estado: Enviado
+
+Descripcion:
+pr2
+

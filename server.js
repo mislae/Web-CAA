@@ -785,7 +785,7 @@ app.post('/api/propuestas', async (req, res) => {
       return res.json({
         success: true,
         provider: delivery.provider || 'unknown',
-        message: 'Propuesta enviada correctamente.'
+        message: 'Propuesta enviada'
       });
     }
 
@@ -801,7 +801,7 @@ app.post('/api/propuestas', async (req, res) => {
       success: true,
       queued: true,
       queueId: delivery.queueId,
-      message: 'Propuesta recibida y en cola de envio automatico.'
+      message: 'Propuesta enviada'
     });
   } catch (error) {
     console.error('Error en /api/propuestas:', error.message);

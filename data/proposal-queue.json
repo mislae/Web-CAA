@@ -32,10 +32,10 @@
       }
     },
     "createdAt": "2026-04-20T13:27:51.310Z",
-    "attempts": 7,
+    "attempts": 14,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776697236246
+    "nextRetryAt": 1776709843390
   },
   {
     "id": "1776691742918-fc3e88a6",
@@ -70,10 +70,10 @@
       }
     },
     "createdAt": "2026-04-20T13:29:02.918Z",
-    "attempts": 7,
+    "attempts": 14,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776697296254
+    "nextRetryAt": 1776709903411
   },
   {
     "id": "1776691868697-bf889af2",
@@ -108,10 +108,10 @@
       }
     },
     "createdAt": "2026-04-20T13:31:08.697Z",
-    "attempts": 7,
+    "attempts": 14,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776697386258
+    "nextRetryAt": 1776709993434
   },
   {
     "id": "1776695502363-9c102a0b",
@@ -146,10 +146,10 @@
       }
     },
     "createdAt": "2026-04-20T14:31:42.363Z",
-    "attempts": 3,
+    "attempts": 12,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776695979703
+    "nextRetryAt": 1776710023435
   },
   {
     "id": "1776695609000-f9aaa2a6",
@@ -184,9 +184,275 @@
       }
     },
     "createdAt": "2026-04-20T14:33:29.000Z",
+    "attempts": 12,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776710113456
+  },
+  {
+    "id": "1776708693011-991674ee",
+    "submissionId": "1776708693009-0a8748",
+    "titulo": "pr",
+    "descripcion": "pr",
+    "autor": "Anónimo",
+    "curso": "No especificado",
+    "mensaje": "TÍTULO: pr\n\nDESCRIPCIÓN:\npr\n\nAUTOR: Anónimo\nCURSO: No especificado\nFECHA: 20-04-2026, 6:11:33 p. m.",
+    "subject": "Nueva Propuesta: pr",
+    "requestMeta": {
+      "ip": "200.104.187.14",
+      "cfConnectingIp": "200.104.187.14",
+      "xForwardedFor": "200.104.187.14",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0",
+      "acceptLanguage": "es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5,es-CL;q=0.4",
+      "acceptEncoding": "gzip, br",
+      "secChUa": "\"Microsoft Edge\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+      "secChUaPlatform": "\"Windows\"",
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 41638
+      }
+    },
+    "createdAt": "2026-04-20T18:11:33.011Z",
+    "attempts": 3,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776709166004
+  },
+  {
+    "id": "1776708831107-30b54bd4",
+    "submissionId": "1776708831033-cb2d38",
+    "titulo": "Verificar copy final",
+    "descripcion": "Sin cola",
+    "autor": "QA",
+    "curso": "UI",
+    "mensaje": "TÍTULO: Verificar copy final\n\nDESCRIPCIÓN:\nSin cola\n\nAUTOR: QA\nCURSO: UI\nFECHA: 20-04-2026, 6:13:51 p. m.",
+    "subject": "Nueva Propuesta: Verificar copy final",
+    "requestMeta": {
+      "ip": "172.18.0.1",
+      "cfConnectingIp": null,
+      "xForwardedFor": null,
+      "userAgent": "curl/7.81.0",
+      "acceptLanguage": null,
+      "acceptEncoding": null,
+      "secChUa": null,
+      "secChUaPlatform": null,
+      "secFetchSite": null,
+      "secFetchMode": null,
+      "secFetchDest": null,
+      "contentType": "application/json",
+      "host": "localhost",
+      "origin": null,
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 59626
+      }
+    },
+    "createdAt": "2026-04-20T18:13:51.107Z",
     "attempts": 2,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776695829701
+    "nextRetryAt": 1776709076001
+  },
+  {
+    "id": "1776708836555-11b9d113",
+    "submissionId": "1776708836553-41654c",
+    "titulo": "Verificar copy final 2",
+    "descripcion": "Sin cola",
+    "autor": "QA",
+    "curso": "UI",
+    "mensaje": "TÍTULO: Verificar copy final 2\n\nDESCRIPCIÓN:\nSin cola\n\nAUTOR: QA\nCURSO: UI\nFECHA: 20-04-2026, 6:13:56 p. m.",
+    "subject": "Nueva Propuesta: Verificar copy final 2",
+    "requestMeta": {
+      "ip": "172.18.0.1",
+      "cfConnectingIp": null,
+      "xForwardedFor": null,
+      "userAgent": "curl/7.81.0",
+      "acceptLanguage": null,
+      "acceptEncoding": null,
+      "secChUa": null,
+      "secChUaPlatform": null,
+      "secFetchSite": null,
+      "secFetchMode": null,
+      "secFetchDest": null,
+      "contentType": "application/json",
+      "host": "localhost",
+      "origin": null,
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 51554
+      }
+    },
+    "createdAt": "2026-04-20T18:13:56.555Z",
+    "attempts": 2,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776709076001
+  },
+  {
+    "id": "1776708864318-6cd9d764",
+    "submissionId": "1776708864316-42f6a6",
+    "titulo": "pr",
+    "descripcion": "pr",
+    "autor": "Anónimo",
+    "curso": "No especificado",
+    "mensaje": "TÍTULO: pr\n\nDESCRIPCIÓN:\npr\n\nAUTOR: Anónimo\nCURSO: No especificado\nFECHA: 20-04-2026, 6:14:24 p. m.",
+    "subject": "Nueva Propuesta: pr",
+    "requestMeta": {
+      "ip": "200.104.187.14",
+      "cfConnectingIp": "200.104.187.14",
+      "xForwardedFor": "200.104.187.14",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0",
+      "acceptLanguage": "es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5,es-CL;q=0.4",
+      "acceptEncoding": "gzip, br",
+      "secChUa": "\"Microsoft Edge\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+      "secChUaPlatform": "\"Windows\"",
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 41002
+      }
+    },
+    "createdAt": "2026-04-20T18:14:24.318Z",
+    "attempts": 2,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776709106001
+  },
+  {
+    "id": "1776708938967-b29d85be",
+    "submissionId": "1776708938895-83e337",
+    "titulo": "Check final",
+    "descripcion": "mensaje unico",
+    "autor": "QA",
+    "curso": "UI",
+    "mensaje": "TÍTULO: Check final\n\nDESCRIPCIÓN:\nmensaje unico\n\nAUTOR: QA\nCURSO: UI\nFECHA: 20-04-2026, 6:15:38 p. m.",
+    "subject": "Nueva Propuesta: Check final",
+    "requestMeta": {
+      "ip": "172.18.0.1",
+      "cfConnectingIp": null,
+      "xForwardedFor": null,
+      "userAgent": "curl/7.81.0",
+      "acceptLanguage": null,
+      "acceptEncoding": null,
+      "secChUa": null,
+      "secChUaPlatform": null,
+      "secFetchSite": null,
+      "secFetchMode": null,
+      "secFetchDest": null,
+      "contentType": "application/json",
+      "host": "localhost",
+      "origin": null,
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 51306
+      }
+    },
+    "createdAt": "2026-04-20T18:15:38.967Z",
+    "attempts": 1,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776709046001
+  },
+  {
+    "id": "1776708946619-48755de9",
+    "submissionId": "1776708946617-7a9770",
+    "titulo": "Check final 2",
+    "descripcion": "mensaje unico",
+    "autor": "QA",
+    "curso": "UI",
+    "mensaje": "TÍTULO: Check final 2\n\nDESCRIPCIÓN:\nmensaje unico\n\nAUTOR: QA\nCURSO: UI\nFECHA: 20-04-2026, 6:15:46 p. m.",
+    "subject": "Nueva Propuesta: Check final 2",
+    "requestMeta": {
+      "ip": "172.18.0.1",
+      "cfConnectingIp": null,
+      "xForwardedFor": null,
+      "userAgent": "curl/7.81.0",
+      "acceptLanguage": null,
+      "acceptEncoding": null,
+      "secChUa": null,
+      "secChUaPlatform": null,
+      "secFetchSite": null,
+      "secFetchMode": null,
+      "secFetchDest": null,
+      "contentType": "application/json",
+      "host": "localhost",
+      "origin": null,
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 39044
+      }
+    },
+    "createdAt": "2026-04-20T18:15:46.619Z",
+    "attempts": 1,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776709046002
+  },
+  {
+    "id": "1776709004987-65724ede",
+    "submissionId": "1776709004985-056890",
+    "titulo": "pr2",
+    "descripcion": "pr2",
+    "autor": "Anónimo",
+    "curso": "No especificado",
+    "mensaje": "TÍTULO: pr2\n\nDESCRIPCIÓN:\npr2\n\nAUTOR: Anónimo\nCURSO: No especificado\nFECHA: 20-04-2026, 6:16:44 p. m.",
+    "subject": "Nueva Propuesta: pr2",
+    "requestMeta": {
+      "ip": "200.104.187.14",
+      "cfConnectingIp": "200.104.187.14",
+      "xForwardedFor": "200.104.187.14",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0",
+      "acceptLanguage": "es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5,es-CL;q=0.4",
+      "acceptEncoding": "gzip, br",
+      "secChUa": "\"Microsoft Edge\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+      "secChUaPlatform": "\"Windows\"",
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 50204
+      }
+    },
+    "createdAt": "2026-04-20T18:16:44.988Z",
+    "attempts": 0,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776709034988
   }
 ]
