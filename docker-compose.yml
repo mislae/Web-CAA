@@ -49,7 +49,7 @@ services:
       - "80:80"
     volumes:
       - web_images:/app/Images
-      - web_data:/app/data
+      - ./data:/app/data
       - web_config:/app/config
     healthcheck:
       test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:80/', (r) => process.exit(r.statusCode < 500 ? 0 : 1)).on('error', () => process.exit(1));"]
@@ -66,5 +66,4 @@ services:
 volumes:
   credencial_data:
   web_images:
-  web_data:
   web_config:

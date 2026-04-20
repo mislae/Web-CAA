@@ -40,6 +40,7 @@ const proposalDataDir = path.join(__dirname, 'data');
 const proposalQueueFile = path.join(proposalDataDir, 'proposal-queue.json');
 const proposalAuditFile = path.join(proposalDataDir, 'proposal-audit.jsonl');
 const proposalInboxFile = path.join(proposalDataDir, 'proposal-inbox.jsonl');
+const proposalReadableFile = path.join(proposalDataDir, 'propuestas-recibidas.txt');
 const configDir = path.join(__dirname, 'config');
 const proposalsConfigFile = path.join(configDir, 'propuestas.json');
 
@@ -70,6 +71,13 @@ function ensureProposalInboxFile() {
   }
 }
 
+function ensureProposalReadableFile() {
+  ensureProposalDataDir();
+  if (!fs.existsSync(proposalReadableFile)) {
+    fs.writeFileSync(proposalReadableFile, '=== PROPUESTAS RECIBIDAS ===\n\n', 'utf8');
+  }
+}
+
 function appendProposalAudit(event, data) {
   ensureProposalAuditFile();
   const entry = {
@@ -83,6 +91,26 @@ function appendProposalAudit(event, data) {
 function appendProposalInbox(entry) {
   ensureProposalInboxFile();
   fs.appendFileSync(proposalInboxFile, `${JSON.stringify(entry)}\n`, 'utf8');
+}
+
+function appendReadableProposal(entry) {
+  ensureProposalReadableFile();
+  const block = [
+    '----------------------------------------',
+    `Fecha: ${entry.timestamp || new Date().toISOString()}`,
+    `ID: ${entry.submissionId || 'n/a'}`,
+    `Titulo: ${entry.title || 'Sin titulo'}`,
+    `Autor: ${entry.author || 'Anónimo'}`,
+    `Curso: ${entry.course || 'No especificado'}`,
+    `IP: ${(entry.requestMeta && entry.requestMeta.ip) || 'unknown'}`,
+    `Estado: Enviado`,
+    '',
+    'Descripcion:',
+    String(entry.description || '').trim() || '(Sin descripcion)',
+    ''
+  ].join('\n');
+
+  fs.appendFileSync(proposalReadableFile, `${block}\n`, 'utf8');
 }
 
 function readJsonlTail(filePath, limit = 20) {
@@ -723,6 +751,16 @@ app.post('/api/propuestas', async (req, res) => {
     requestMeta
   });
 
+  appendReadableProposal({
+    timestamp: new Date().toISOString(),
+    submissionId,
+    title: titulo,
+    description: descripcion,
+    author: autor,
+    course: curso,
+    requestMeta
+  });
+
   try {
     const delivery = await sendOrQueueProposal({
       titulo,
@@ -837,6 +875,10 @@ app.get('/api/propuestas/status', (req, res) => {
       lastSubmissionId: lastInboxEntry ? (lastInboxEntry.submissionId || null) : null,
       lastTimestamp: lastInboxEntry ? (lastInboxEntry.timestamp || null) : null
     },
+    readableLog: {
+      file: 'data/propuestas-recibidas.txt',
+      totalLines: getFileLineCount(proposalReadableFile)
+    },
     queue: {
       file: 'data/proposal-queue.json',
       length: queue.length,
@@ -908,6 +950,24 @@ app.get('/api/propuestas/pending', (req, res) => {
     recipient: getProposalRecipient(),
     items
   });
+});
+
+app.get('/api/propuestas/log.txt', (req, res) => {
+  if (!isProposalStatusAuthorized(req)) {
+    return res.status(401).json({
+      success: false,
+      error: 'No autorizado para consultar el log de propuestas.'
+    });
+  }
+
+  ensureProposalReadableFile();
+  try {
+    const text = fs.readFileSync(proposalReadableFile, 'utf8');
+    res.type('text/plain; charset=utf-8');
+    return res.send(text);
+  } catch (_error) {
+    return res.status(500).type('text/plain; charset=utf-8').send('No se pudo leer el log de propuestas.');
+  }
 });
 
 // Endpoint para obtener imágenes de la galería
@@ -1135,6 +1195,7 @@ app.listen(PORT, () => {
   console.log(`Servidor iniciado en http://localhost:${PORT}`);
   ensureProposalQueueFile();
   ensureProposalInboxFile();
+  ensureProposalReadableFile();
   setInterval(processProposalQueue, 30000).unref();
   processProposalQueue().catch((error) => {
     console.error('Error al procesar cola inicial de propuestas:', error.message);

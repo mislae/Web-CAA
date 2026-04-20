@@ -1,0 +1,58 @@
+=== PROPUESTAS RECIBIDAS ===
+
+----------------------------------------
+Fecha: 2026-04-20T13:27:51.309Z
+ID: 1776691671220-2cbb91
+Titulo: Prueba 20-4
+Autor: Anónimo
+Curso: No especificado
+IP: 200.104.187.14
+
+Descripcion:
+20-4 9:30
+
+----------------------------------------
+Fecha: 2026-04-20T13:29:02.917Z
+ID: 1776691742916-9fabf7
+Titulo: Prueba TXT
+Autor: QA
+Curso: Test
+IP: 172.18.0.1
+
+Descripcion:
+Verificar escritura en txt
+
+----------------------------------------
+Fecha: 2026-04-20T13:31:08.696Z
+ID: 1776691868635-1c1c1e
+Titulo: Prueba TXT Visible
+Autor: QA
+Curso: Local
+IP: 172.18.0.1
+
+Descripcion:
+Debe aparecer en archivo del workspace
+
+----------------------------------------
+Fecha: 2026-04-20T14:31:42.362Z
+ID: 1776695502361-d62af8
+Titulo: Prueba 10:31
+Autor: Anónimo
+Curso: No especificado
+IP: 200.104.187.14
+
+Descripcion:
+Prueba 10:31
+
+----------------------------------------
+Fecha: 2026-04-20T14:33:28.997Z
+ID: 1776695608921-5bc7a2
+Titulo: Test Estado Enviado
+Autor: QA
+Curso: Test
+IP: 172.18.0.1
+Estado: Enviado
+
+Descripcion:
+Verificar que dice Enviado
+
