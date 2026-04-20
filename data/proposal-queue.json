@@ -146,10 +146,10 @@
       }
     },
     "createdAt": "2026-04-20T14:31:42.363Z",
-    "attempts": 2,
+    "attempts": 3,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776695739670
+    "nextRetryAt": 1776695979703
   },
   {
     "id": "1776695609000-f9aaa2a6",
@@ -184,9 +184,9 @@
       }
     },
     "createdAt": "2026-04-20T14:33:29.000Z",
-    "attempts": 1,
+    "attempts": 2,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776695709671
+    "nextRetryAt": 1776695829701
   }
 ]
