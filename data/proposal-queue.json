@@ -32,10 +32,10 @@
       }
     },
     "createdAt": "2026-04-20T13:27:51.310Z",
-    "attempts": 14,
+    "attempts": 28,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776709843390
+    "nextRetryAt": 1776735062619
   },
   {
     "id": "1776691742918-fc3e88a6",
@@ -70,10 +70,10 @@
       }
     },
     "createdAt": "2026-04-20T13:29:02.918Z",
-    "attempts": 14,
+    "attempts": 28,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776709903411
+    "nextRetryAt": 1776735122628
   },
   {
     "id": "1776691868697-bf889af2",
@@ -108,10 +108,10 @@
       }
     },
     "createdAt": "2026-04-20T13:31:08.697Z",
-    "attempts": 14,
+    "attempts": 28,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776709993434
+    "nextRetryAt": 1776735212641
   },
   {
     "id": "1776695502363-9c102a0b",
@@ -146,10 +146,10 @@
       }
     },
     "createdAt": "2026-04-20T14:31:42.363Z",
-    "attempts": 12,
+    "attempts": 26,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776710023435
+    "nextRetryAt": 1776735242646
   },
   {
     "id": "1776695609000-f9aaa2a6",
@@ -184,10 +184,10 @@
       }
     },
     "createdAt": "2026-04-20T14:33:29.000Z",
-    "attempts": 12,
+    "attempts": 26,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776710113456
+    "nextRetryAt": 1776735332653
   },
   {
     "id": "1776708693011-991674ee",
@@ -222,10 +222,10 @@
       }
     },
     "createdAt": "2026-04-20T18:11:33.011Z",
-    "attempts": 3,
+    "attempts": 19,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776709166004
+    "nextRetryAt": 1776735812680
   },
   {
     "id": "1776708831107-30b54bd4",
@@ -260,10 +260,10 @@
       }
     },
     "createdAt": "2026-04-20T18:13:51.107Z",
-    "attempts": 2,
+    "attempts": 18,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776709076001
+    "nextRetryAt": 1776734162426
   },
   {
     "id": "1776708836555-11b9d113",
@@ -298,10 +298,10 @@
       }
     },
     "createdAt": "2026-04-20T18:13:56.555Z",
-    "attempts": 2,
+    "attempts": 18,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776709076001
+    "nextRetryAt": 1776734162426
   },
   {
     "id": "1776708864318-6cd9d764",
@@ -336,10 +336,10 @@
       }
     },
     "createdAt": "2026-04-20T18:14:24.318Z",
-    "attempts": 2,
+    "attempts": 18,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776709106001
+    "nextRetryAt": 1776734192433
   },
   {
     "id": "1776708938967-b29d85be",
@@ -374,10 +374,10 @@
       }
     },
     "createdAt": "2026-04-20T18:15:38.967Z",
-    "attempts": 1,
+    "attempts": 18,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776709046001
+    "nextRetryAt": 1776734252453
   },
   {
     "id": "1776708946619-48755de9",
@@ -412,10 +412,10 @@
       }
     },
     "createdAt": "2026-04-20T18:15:46.619Z",
-    "attempts": 1,
+    "attempts": 18,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776709046002
+    "nextRetryAt": 1776734252453
   },
   {
     "id": "1776709004987-65724ede",
@@ -450,9 +450,427 @@
       }
     },
     "createdAt": "2026-04-20T18:16:44.988Z",
-    "attempts": 0,
+    "attempts": 18,
     "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
     "lastStatusCode": null,
-    "nextRetryAt": 1776709034988
+    "nextRetryAt": 1776734312472
+  },
+  {
+    "id": "1776719736864-ec2e4f57",
+    "submissionId": "1776719736861-98d551",
+    "titulo": "Prueba Servicio",
+    "descripcion": "ps3",
+    "autor": "Anónimo",
+    "curso": "No especificado",
+    "mensaje": "TÍTULO: Prueba Servicio\n\nDESCRIPCIÓN:\nps3\n\nAUTOR: Anónimo\nCURSO: No especificado\nFECHA: 20-04-2026, 9:15:36 p. m.",
+    "subject": "Nueva Propuesta: Prueba Servicio",
+    "requestMeta": {
+      "ip": "186.10.214.25",
+      "cfConnectingIp": "186.10.214.25",
+      "xForwardedFor": "186.10.214.25",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/29.0 Chrome/136.0.0.0 Mobile Safari/537.36",
+      "acceptLanguage": "es-CL,es-US;q=0.9,es;q=0.8,en-US;q=0.7,en;q=0.6,es-419;q=0.5",
+      "acceptEncoding": "gzip, br",
+      "secChUa": "\"Chromium\";v=\"136\", \"Samsung Internet\";v=\"29.0\", \"Not.A/Brand\";v=\"99\"",
+      "secChUaPlatform": "\"Android\"",
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 51722
+      }
+    },
+    "createdAt": "2026-04-20T21:15:36.864Z",
+    "attempts": 12,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776734252453
+  },
+  {
+    "id": "1776725040185-315e7a0c",
+    "submissionId": "1776725040173-97311e",
+    "titulo": ".",
+    "descripcion": "Rectoria se queja y nos quita cosas a nosotros por la gente que se droga y al final es culpa de ellos por aceptar a cualquier weon",
+    "autor": "Anónimo",
+    "curso": "No especificado",
+    "mensaje": "TÍTULO: .\n\nDESCRIPCIÓN:\nRectoria se queja y nos quita cosas a nosotros por la gente que se droga y al final es culpa de ellos por aceptar a cualquier weon\n\nAUTOR: Anónimo\nCURSO: No especificado\nFECHA: 20-04-2026, 10:44:00 p. m.",
+    "subject": "Nueva Propuesta: .",
+    "requestMeta": {
+      "ip": "201.188.164.138",
+      "cfConnectingIp": "201.188.164.138",
+      "xForwardedFor": "201.188.164.138",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/23D8133 Instagram 425.0.0.32.59 (iPhone15,4; iOS 26_3_1; en_US; en; scale=3.00; 1179x2556; IABMV/1; 936842409) Safari/604.1",
+      "acceptLanguage": "en-US,en;q=0.9",
+      "acceptEncoding": "gzip, br",
+      "secChUa": null,
+      "secChUaPlatform": null,
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 52792
+      }
+    },
+    "createdAt": "2026-04-20T22:44:00.185Z",
+    "attempts": 9,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776734132416
+  },
+  {
+    "id": "1776725163550-35adcd13",
+    "submissionId": "1776725163548-f05d54",
+    "titulo": ".",
+    "descripcion": "José Pablo Salgado es el que fuma wax en los baños e inicita a otros alumnos a hacerlo",
+    "autor": "Anónimo",
+    "curso": "No especificado",
+    "mensaje": "TÍTULO: .\n\nDESCRIPCIÓN:\nJosé Pablo Salgado es el que fuma wax en los baños e inicita a otros alumnos a hacerlo\n\nAUTOR: Anónimo\nCURSO: No especificado\nFECHA: 20-04-2026, 10:46:03 p. m.",
+    "subject": "Nueva Propuesta: .",
+    "requestMeta": {
+      "ip": "201.188.164.138",
+      "cfConnectingIp": "201.188.164.138",
+      "xForwardedFor": "201.188.164.138",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/23D8133 Instagram 425.0.0.32.59 (iPhone15,4; iOS 26_3_1; en_US; en; scale=3.00; 1179x2556; IABMV/1; 936842409) Safari/604.1",
+      "acceptLanguage": "en-US,en;q=0.9",
+      "acceptEncoding": "gzip, br",
+      "secChUa": null,
+      "secChUaPlatform": null,
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 48510
+      }
+    },
+    "createdAt": "2026-04-20T22:46:03.550Z",
+    "attempts": 9,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776734282463
+  },
+  {
+    "id": "1776725261299-e69e2228",
+    "submissionId": "1776725261297-68bb3c",
+    "titulo": "Uso de Buzo en invierno",
+    "descripcion": "Permitir que hombres y mujeres puedan usar Buzo en invierno facilita la comodidad y mantener el cuerpo caliente, sin pasar frío. Además para las niñas no es cómodo usar pantis porque además que se rompen fácilmente no abrigan.",
+    "autor": "Anónimo",
+    "curso": "No especificado",
+    "mensaje": "TÍTULO: Uso de Buzo en invierno\n\nDESCRIPCIÓN:\nPermitir que hombres y mujeres puedan usar Buzo en invierno facilita la comodidad y mantener el cuerpo caliente, sin pasar frío. Además para las niñas no es cómodo usar pantis porque además que se rompen fácilmente no abrigan.\n\nAUTOR: Anónimo\nCURSO: No especificado\nFECHA: 20-04-2026, 10:47:41 p. m.",
+    "subject": "Nueva Propuesta: Uso de Buzo en invierno",
+    "requestMeta": {
+      "ip": "2800:300:6a72:fac0:37d9:cb00:ddb1:d826",
+      "cfConnectingIp": "2800:300:6a72:fac0:37d9:cb00:ddb1:d826",
+      "xForwardedFor": "2800:300:6a72:fac0:37d9:cb00:ddb1:d826",
+      "userAgent": "Mozilla/5.0 (Linux; Android 16; SM-A065M Build/BP2A.250605.031.A3; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/147.0.7727.88 Mobile Safari/537.36 Instagram 425.0.0.47.61 Android (36/16; 300dpi; 720x1600; samsung; SM-A065M; a06; mt6768; es_US; 938255970; IABMV/1)",
+      "acceptLanguage": "es-US,es;q=0.9,en-US;q=0.8,en;q=0.7",
+      "acceptEncoding": "gzip, br",
+      "secChUa": "\"Android WebView\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+      "secChUaPlatform": "\"Android\"",
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 45052
+      }
+    },
+    "createdAt": "2026-04-20T22:47:41.299Z",
+    "attempts": 9,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776734372486
+  },
+  {
+    "id": "1776725701904-06847c5e",
+    "submissionId": "1776725701900-4b1bcc",
+    "titulo": "1",
+    "descripcion": "1",
+    "autor": "Anónimo",
+    "curso": "No especificado",
+    "mensaje": "TÍTULO: 1\n\nDESCRIPCIÓN:\n1\n\nAUTOR: Anónimo\nCURSO: No especificado\nFECHA: 20-04-2026, 10:55:01 p. m.",
+    "subject": "Nueva Propuesta: 1",
+    "requestMeta": {
+      "ip": "200.104.187.14",
+      "cfConnectingIp": "200.104.187.14",
+      "xForwardedFor": "200.104.187.14",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0",
+      "acceptLanguage": "es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5,es-CL;q=0.4",
+      "acceptEncoding": "gzip, br",
+      "secChUa": "\"Microsoft Edge\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+      "secChUaPlatform": "\"Windows\"",
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 55104
+      }
+    },
+    "createdAt": "2026-04-20T22:55:01.904Z",
+    "attempts": 9,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776734822579
+  },
+  {
+    "id": "1776725797235-d4f3f8be",
+    "submissionId": "1776725797233-4cdd36",
+    "titulo": "mejorar la higiene del baño",
+    "descripcion": "los baños están asquerosos, los de mujeres también, da mucho asco ir, porfavor hacer un llamado al colegio para mejorarlo",
+    "autor": "Anónimo",
+    "curso": "No especificado",
+    "mensaje": "TÍTULO: mejorar la higiene del baño\n\nDESCRIPCIÓN:\nlos baños están asquerosos, los de mujeres también, da mucho asco ir, porfavor hacer un llamado al colegio para mejorarlo\n\nAUTOR: Anónimo\nCURSO: No especificado\nFECHA: 20-04-2026, 10:56:37 p. m.",
+    "subject": "Nueva Propuesta: mejorar la higiene del baño",
+    "requestMeta": {
+      "ip": "181.42.214.214",
+      "cfConnectingIp": "181.42.214.214",
+      "xForwardedFor": "181.42.214.214",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/23B85 Instagram 425.0.0.32.59 (iPhone15,3; iOS 26_1; es_LA; es; scale=3.00; 1290x2796; IABMV/1; 936842409) Safari/604.1",
+      "acceptLanguage": "es-419,es;q=0.9",
+      "acceptEncoding": "gzip, br",
+      "secChUa": null,
+      "secChUaPlatform": null,
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 53726
+      }
+    },
+    "createdAt": "2026-04-20T22:56:37.235Z",
+    "attempts": 9,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776734912593
+  },
+  {
+    "id": "1776725905884-8fc00561",
+    "submissionId": "1776725905882-9be532",
+    "titulo": "Responsable candado camarin",
+    "descripcion": "Jose domingo jordan es el principal responsable de la ruptura de candado en el camarin, el cual lo ocupan para consumir vaporizador dentro de el",
+    "autor": "Anónimo",
+    "curso": "3 D",
+    "mensaje": "TÍTULO: Responsable candado camarin\n\nDESCRIPCIÓN:\nJose domingo jordan es el principal responsable de la ruptura de candado en el camarin, el cual lo ocupan para consumir vaporizador dentro de el\n\nAUTOR: Anónimo\nCURSO: 3 D\nFECHA: 20-04-2026, 10:58:25 p. m.",
+    "subject": "Nueva Propuesta: Responsable candado camarin",
+    "requestMeta": {
+      "ip": "190.215.8.133",
+      "cfConnectingIp": "190.215.8.133",
+      "xForwardedFor": "190.215.8.133",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/23D8133 Instagram 425.0.0.32.59 (iPhone18,1; iOS 26_3_1; es_LA; es; scale=3.00; 1206x2622; IABMV/1; 936842409) Safari/604.1",
+      "acceptLanguage": "es-419,es;q=0.9",
+      "acceptEncoding": "gzip, br",
+      "secChUa": null,
+      "secChUaPlatform": null,
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 36164
+      }
+    },
+    "createdAt": "2026-04-20T22:58:25.884Z",
+    "attempts": 9,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776735002609
+  },
+  {
+    "id": "1776726048122-992ff105",
+    "submissionId": "1776726048119-c4e074",
+    "titulo": "Inter curso de 🏀",
+    "descripcion": "Aser un intercurso de basketball",
+    "autor": "Anónimo",
+    "curso": "No especificado",
+    "mensaje": "TÍTULO: Inter curso de 🏀\n\nDESCRIPCIÓN:\nAser un intercurso de basketball\n\nAUTOR: Anónimo\nCURSO: No especificado\nFECHA: 20-04-2026, 11:00:48 p. m.",
+    "subject": "Nueva Propuesta: Inter curso de 🏀",
+    "requestMeta": {
+      "ip": "2800:300:9021:8c0:e00a:7bad:57d6:bd99",
+      "cfConnectingIp": "2800:300:9021:8c0:e00a:7bad:57d6:bd99",
+      "xForwardedFor": "2800:300:9021:8c0:e00a:7bad:57d6:bd99",
+      "userAgent": "Mozilla/5.0 (Linux; Android 13; SM-A325M Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/147.0.7727.88 Mobile Safari/537.36 Instagram 425.0.0.47.61 Android (33/13; 420dpi; 1080x2400; samsung; SM-A325M; a32; mt6769t; es_US; 938256486; IABMV/1)",
+      "acceptLanguage": "es-US,es;q=0.9,en-US;q=0.8,en;q=0.7",
+      "acceptEncoding": "gzip, br",
+      "secChUa": "\"Android WebView\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+      "secChUaPlatform": "\"Android\"",
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 57862
+      }
+    },
+    "createdAt": "2026-04-20T23:00:48.122Z",
+    "attempts": 9,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776735152634
+  },
+  {
+    "id": "1776727145764-aa919a0e",
+    "submissionId": "1776727145760-92f5ec",
+    "titulo": "prueba de sistema",
+    "descripcion": "Prueba de sistema",
+    "autor": "Anónimo",
+    "curso": "No especificado",
+    "mensaje": "TÍTULO: prueba de sistema\n\nDESCRIPCIÓN:\nPrueba de sistema\n\nAUTOR: Anónimo\nCURSO: No especificado\nFECHA: 20-04-2026, 11:19:05 p. m.",
+    "subject": "Nueva Propuesta: prueba de sistema",
+    "requestMeta": {
+      "ip": "200.104.187.14",
+      "cfConnectingIp": "200.104.187.14",
+      "xForwardedFor": "200.104.187.14",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0",
+      "acceptLanguage": "es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5,es-CL;q=0.4",
+      "acceptEncoding": "gzip, br",
+      "secChUa": "\"Microsoft Edge\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+      "secChUaPlatform": "\"Windows\"",
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 33560
+      }
+    },
+    "createdAt": "2026-04-20T23:19:05.764Z",
+    "attempts": 8,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776734462497
+  },
+  {
+    "id": "1776729297294-cdeef441",
+    "submissionId": "1776729297292-9676aa",
+    "titulo": "mota en los baños",
+    "descripcion": "el jp salgado el chicomati y el chumingo se la pasan fumando wax en el baño del segundo piso y no la hacen na piola echenlos rapido pa jugar a la pelota",
+    "autor": "Anónimo",
+    "curso": "No especificado",
+    "mensaje": "TÍTULO: mota en los baños\n\nDESCRIPCIÓN:\nel jp salgado el chicomati y el chumingo se la pasan fumando wax en el baño del segundo piso y no la hacen na piola echenlos rapido pa jugar a la pelota\n\nAUTOR: Anónimo\nCURSO: No especificado\nFECHA: 20-04-2026, 11:54:57 p. m.",
+    "subject": "Nueva Propuesta: mota en los baños",
+    "requestMeta": {
+      "ip": "2800:150:140:1766:30fd:36d1:4c0c:79af",
+      "cfConnectingIp": "2800:150:140:1766:30fd:36d1:4c0c:79af",
+      "xForwardedFor": "2800:150:140:1766:30fd:36d1:4c0c:79af",
+      "userAgent": "Mozilla/5.0 (Linux; Android 15; 23100RN82L Build/AP3A.240905.015.A2; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/147.0.7727.88 Mobile Safari/537.36 Instagram 425.0.0.47.61 Android (35/15; 320dpi; 720x1600; Xiaomi/Redmi; 23100RN82L; gale; mt6768; es_US; 938256815; IABMV/1)",
+      "acceptLanguage": "es-US,es;q=0.9,en-US;q=0.8,en;q=0.7",
+      "acceptEncoding": "gzip, br",
+      "secChUa": "\"Android WebView\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+      "secChUaPlatform": "\"Android\"",
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 35618
+      }
+    },
+    "createdAt": "2026-04-20T23:54:57.294Z",
+    "attempts": 7,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776734792572
+  },
+  {
+    "id": "1776732908605-231813b0",
+    "submissionId": "1776732908599-d93d53",
+    "titulo": "droga en los baños",
+    "descripcion": "chumingo puro anda drogandose, lo echaron de su otro colegio y aun asi lo aceptan aca en el brs",
+    "autor": "Anónimo",
+    "curso": "No especificado",
+    "mensaje": "TÍTULO: droga en los baños\n\nDESCRIPCIÓN:\nchumingo puro anda drogandose, lo echaron de su otro colegio y aun asi lo aceptan aca en el brs\n\nAUTOR: Anónimo\nCURSO: No especificado\nFECHA: 21-04-2026, 12:55:08 a. m.",
+    "subject": "Nueva Propuesta: droga en los baños",
+    "requestMeta": {
+      "ip": "2803:c600:d21a:ad51:dc11:e7fc:aacd:af7d",
+      "cfConnectingIp": "2803:c600:d21a:ad51:dc11:e7fc:aacd:af7d",
+      "xForwardedFor": "2803:c600:d21a:ad51:dc11:e7fc:aacd:af7d",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_6_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/22G100 Instagram 425.0.0.32.59 (iPhone14,7; iOS 18_6_2; en_GB; en-GB; scale=3.00; 1170x2532; IABMV/1; 936842409) Safari/604.1",
+      "acceptLanguage": "en-GB,en;q=0.9",
+      "acceptEncoding": "gzip, br",
+      "secChUa": null,
+      "secChUaPlatform": null,
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "contentType": "application/json",
+      "host": "caabrs.cl",
+      "origin": "https://caabrs.cl",
+      "referer": null,
+      "socket": {
+        "encrypted": false,
+        "alpnProtocol": null,
+        "remoteFamily": "IPv6",
+        "remotePort": 60586
+      }
+    },
+    "createdAt": "2026-04-21T00:55:08.605Z",
+    "attempts": 5,
+    "lastError": "PocketBase no configurado (PROPOSAL_PB_URL).",
+    "lastStatusCode": null,
+    "nextRetryAt": 1776734822677
   }
 ]

@@ -1,51 +1,139 @@
 === PROPUESTAS RECIBIDAS ===
 
 ----------------------------------------
-Fecha: 2026-04-20T13:27:51.309Z
+Fecha: 17-04-2026, 05:45:52 p.m.
+ID: 1776462351952-d77d15
+Titulo: Prueba post-despliegue
+Autor: Sistema
+Curso: Ops
+IP: 172.18.0.1
+Estado: Enviado
+
+Descripcion:
+Verificacion de entrega tras despliegue
+
+----------------------------------------
+Fecha: 17-04-2026, 05:45:52 p.m.
+ID: 1776462352336-08a76b
+Titulo: Prueba Instagram
+Autor: Sistema
+Curso: Ops
+IP: 172.18.0.1
+Estado: Enviado
+
+Descripcion:
+Verificacion webview IG
+
+----------------------------------------
+Fecha: 17-04-2026, 05:46:00 p.m.
+ID: 1776462360767-4bb2de
+Titulo: Prueba post-despliegue
+Autor: Sistema
+Curso: Ops
+IP: 172.18.0.1
+Estado: Enviado
+
+Descripcion:
+Verificacion de entrega tras despliegue
+
+----------------------------------------
+Fecha: 17-04-2026, 05:46:00 p.m.
+ID: 1776462360860-f6fecf
+Titulo: Prueba Instagram
+Autor: Sistema
+Curso: Ops
+IP: 172.18.0.1
+Estado: Enviado
+
+Descripcion:
+Verificacion webview IG
+
+----------------------------------------
+Fecha: 17-04-2026, 06:36:18 p.m.
+ID: 1776465378612-27b3bc
+Titulo: Smoke IG
+Autor: ops
+Curso: qa
+IP: 172.18.0.1
+Estado: Enviado
+
+Descripcion:
+validacion final
+
+----------------------------------------
+Fecha: 17-04-2026, 06:38:56 p.m.
+ID: 1776465536331-fee1e4
+Titulo: Prueba de Sistema Laptop 3
+Autor: Anónimo
+Curso: No especificado
+IP: 186.11.14.201
+Estado: Enviado
+
+Descripcion:
+Prueba de Sistema Laptop 3
+
+----------------------------------------
+Fecha: 17-04-2026, 06:44:24 p.m.
+ID: 1776465864509-1db74d
+Titulo: PSL4
+Autor: Anónimo
+Curso: No especificado
+IP: 186.11.14.201
+Estado: Enviado
+
+Descripcion:
+PSL4
+
+----------------------------------------
+Fecha: 20-04-2026, 09:27:51 a.m.
 ID: 1776691671220-2cbb91
 Titulo: Prueba 20-4
 Autor: Anónimo
 Curso: No especificado
 IP: 200.104.187.14
+Estado: Enviado
 
 Descripcion:
 20-4 9:30
 
 ----------------------------------------
-Fecha: 2026-04-20T13:29:02.917Z
+Fecha: 20-04-2026, 09:29:02 a.m.
 ID: 1776691742916-9fabf7
 Titulo: Prueba TXT
 Autor: QA
 Curso: Test
 IP: 172.18.0.1
+Estado: Enviado
 
 Descripcion:
 Verificar escritura en txt
 
 ----------------------------------------
-Fecha: 2026-04-20T13:31:08.696Z
+Fecha: 20-04-2026, 09:31:08 a.m.
 ID: 1776691868635-1c1c1e
 Titulo: Prueba TXT Visible
 Autor: QA
 Curso: Local
 IP: 172.18.0.1
+Estado: Enviado
 
 Descripcion:
 Debe aparecer en archivo del workspace
 
 ----------------------------------------
-Fecha: 2026-04-20T14:31:42.362Z
+Fecha: 20-04-2026, 10:31:42 a.m.
 ID: 1776695502361-d62af8
 Titulo: Prueba 10:31
 Autor: Anónimo
 Curso: No especificado
 IP: 200.104.187.14
+Estado: Enviado
 
 Descripcion:
 Prueba 10:31
 
 ----------------------------------------
-Fecha: 2026-04-20T14:33:28.997Z
+Fecha: 20-04-2026, 10:33:28 a.m.
 ID: 1776695608921-5bc7a2
 Titulo: Test Estado Enviado
 Autor: QA
@@ -57,7 +145,7 @@ Descripcion:
 Verificar que dice Enviado
 
 ----------------------------------------
-Fecha: 2026-04-20T18:11:33.011Z
+Fecha: 20-04-2026, 02:11:33 p.m.
 ID: 1776708693009-0a8748
 Titulo: pr
 Autor: Anónimo
@@ -69,7 +157,7 @@ Descripcion:
 pr
 
 ----------------------------------------
-Fecha: 2026-04-20T18:13:51.105Z
+Fecha: 20-04-2026, 02:13:51 p.m.
 ID: 1776708831033-cb2d38
 Titulo: Verificar copy final
 Autor: QA
@@ -81,7 +169,7 @@ Descripcion:
 Sin cola
 
 ----------------------------------------
-Fecha: 2026-04-20T18:13:56.555Z
+Fecha: 20-04-2026, 02:13:56 p.m.
 ID: 1776708836553-41654c
 Titulo: Verificar copy final 2
 Autor: QA
@@ -93,7 +181,7 @@ Descripcion:
 Sin cola
 
 ----------------------------------------
-Fecha: 2026-04-20T18:14:24.317Z
+Fecha: 20-04-2026, 02:14:24 p.m.
 ID: 1776708864316-42f6a6
 Titulo: pr
 Autor: Anónimo
@@ -105,7 +193,7 @@ Descripcion:
 pr
 
 ----------------------------------------
-Fecha: 2026-04-20T18:15:38.965Z
+Fecha: 20-04-2026, 02:15:38 p.m.
 ID: 1776708938895-83e337
 Titulo: Check final
 Autor: QA
@@ -117,7 +205,7 @@ Descripcion:
 mensaje unico
 
 ----------------------------------------
-Fecha: 2026-04-20T18:15:46.618Z
+Fecha: 20-04-2026, 02:15:46 p.m.
 ID: 1776708946617-7a9770
 Titulo: Check final 2
 Autor: QA
@@ -129,7 +217,7 @@ Descripcion:
 mensaje unico
 
 ----------------------------------------
-Fecha: 2026-04-20T18:16:44.987Z
+Fecha: 20-04-2026, 02:16:44 p.m.
 ID: 1776709004985-056890
 Titulo: pr2
 Autor: Anónimo
@@ -139,4 +227,136 @@ Estado: Enviado
 
 Descripcion:
 pr2
+
+----------------------------------------
+Fecha: 20-04-2026, 05:15:36 p.m.
+ID: 1776719736861-98d551
+Titulo: Prueba Servicio
+Autor: Anónimo
+Curso: No especificado
+IP: 186.10.214.25
+Estado: Enviado
+
+Descripcion:
+ps3
+
+----------------------------------------
+Fecha: 20-04-2026, 06:44:00 p.m.
+ID: 1776725040173-97311e
+Titulo: .
+Autor: Anónimo
+Curso: No especificado
+IP: 201.188.164.138
+Estado: Enviado
+
+Descripcion:
+Rectoria se queja y nos quita cosas a nosotros por la gente que se droga y al final es culpa de ellos por aceptar a cualquier weon
+
+----------------------------------------
+Fecha: 20-04-2026, 06:46:03 p.m.
+ID: 1776725163548-f05d54
+Titulo: .
+Autor: Anónimo
+Curso: No especificado
+IP: 201.188.164.138
+Estado: Enviado
+
+Descripcion:
+José Pablo Salgado es el que fuma wax en los baños e inicita a otros alumnos a hacerlo
+
+----------------------------------------
+Fecha: 20-04-2026, 06:47:41 p.m.
+ID: 1776725261297-68bb3c
+Titulo: Uso de Buzo en invierno
+Autor: Anónimo
+Curso: No especificado
+IP: 2800:300:6a72:fac0:37d9:cb00:ddb1:d826
+Estado: Enviado
+
+Descripcion:
+Permitir que hombres y mujeres puedan usar Buzo en invierno facilita la comodidad y mantener el cuerpo caliente, sin pasar frío. Además para las niñas no es cómodo usar pantis porque además que se rompen fácilmente no abrigan.
+
+----------------------------------------
+Fecha: 20-04-2026, 06:55:01 p.m.
+ID: 1776725701900-4b1bcc
+Titulo: 1
+Autor: Anónimo
+Curso: No especificado
+IP: 200.104.187.14
+Estado: Enviado
+
+Descripcion:
+1
+
+----------------------------------------
+Fecha: 20-04-2026, 06:56:37 p.m.
+ID: 1776725797233-4cdd36
+Titulo: mejorar la higiene del baño
+Autor: Anónimo
+Curso: No especificado
+IP: 181.42.214.214
+Estado: Enviado
+
+Descripcion:
+los baños están asquerosos, los de mujeres también, da mucho asco ir, porfavor hacer un llamado al colegio para mejorarlo
+
+----------------------------------------
+Fecha: 20-04-2026, 06:58:25 p.m.
+ID: 1776725905882-9be532
+Titulo: Responsable candado camarin
+Autor: Anónimo
+Curso: 3 D
+IP: 190.215.8.133
+Estado: Enviado
+
+Descripcion:
+Jose domingo jordan es el principal responsable de la ruptura de candado en el camarin, el cual lo ocupan para consumir vaporizador dentro de el
+
+----------------------------------------
+Fecha: 20-04-2026, 07:00:48 p.m.
+ID: 1776726048119-c4e074
+Titulo: Inter curso de 🏀
+Autor: Anónimo
+Curso: No especificado
+IP: 2800:300:9021:8c0:e00a:7bad:57d6:bd99
+Estado: Enviado
+
+Descripcion:
+Aser un intercurso de basketball
+
+----------------------------------------
+Fecha: 20-04-2026, 07:19:05 p.m.
+ID: 1776727145760-92f5ec
+Titulo: prueba de sistema
+Autor: Anónimo
+Curso: No especificado
+IP: 200.104.187.14
+Estado: Enviado
+
+Descripcion:
+Prueba de sistema
+
+----------------------------------------
+Fecha: 20-04-2026, 07:54:57 p.m.
+ID: 1776729297292-9676aa
+Titulo: mota en los baños
+Autor: Anónimo
+Curso: No especificado
+IP: 2800:150:140:1766:30fd:36d1:4c0c:79af
+Estado: Enviado
+
+Descripcion:
+el jp salgado el chicomati y el chumingo se la pasan fumando wax en el baño del segundo piso y no la hacen na piola echenlos rapido pa jugar a la pelota
+
+----------------------------------------
+Fecha: 20-04-2026, 08:55:08 p.m.
+ID: 1776732908599-d93d53
+Titulo: droga en los baños
+Autor: Anónimo
+Curso: No especificado
+IP: 2803:c600:d21a:ad51:dc11:e7fc:aacd:af7d
+Estado: Enviado
+
+Descripcion:
+chumingo puro anda drogandose, lo echaron de su otro colegio y aun asi lo aceptan aca en el brs
 

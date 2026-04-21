@@ -75,6 +75,13 @@ function ensureProposalReadableFile() {
   ensureProposalDataDir();
   if (!fs.existsSync(proposalReadableFile)) {
     fs.writeFileSync(proposalReadableFile, '=== PROPUESTAS RECIBIDAS ===\n\n', 'utf8');
+    return;
+  }
+
+  const current = fs.readFileSync(proposalReadableFile, 'utf8');
+  const trimmed = current.trim();
+  if (!trimmed || trimmed === '=== PROPUESTAS RECIBIDAS ===') {
+    regenerateProposalReadableFile();
   }
 }
 
@@ -93,11 +100,48 @@ function appendProposalInbox(entry) {
   fs.appendFileSync(proposalInboxFile, `${JSON.stringify(entry)}\n`, 'utf8');
 }
 
+/**
+ * Convierte timestamp ISO 8601 a formato legible en zona horaria de Santiago de Chile
+ */
+function formatDateSantiago(isoString) {
+  try {
+    const date = new Date(isoString);
+    const formatter = new Intl.DateTimeFormat('es-CL', {
+      timeZone: 'America/Santiago',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+    });
+    
+    const parts = formatter.formatToParts(date);
+    const map = {};
+    parts.forEach(part => {
+      if (part.type !== 'literal') {
+        map[part.type] = part.value;
+      }
+    });
+    
+    const hour = parseInt(map.hour);
+    const period = hour >= 12 ? 'p.m.' : 'a.m.';
+    const hour12 = hour > 12 ? hour - 12 : (hour === 0 ? 12 : hour);
+    
+    return `${map.day}-${map.month}-${map.year}, ${String(hour12).padStart(2, '0')}:${map.minute}:${map.second} ${period}`;
+  } catch (error) {
+    return isoString;
+  }
+}
+
 function appendReadableProposal(entry) {
   ensureProposalReadableFile();
+  const timestamp = entry.timestamp || new Date().toISOString();
+  const fechaLocal = formatDateSantiago(timestamp);
+  
   const block = [
     '----------------------------------------',
-    `Fecha: ${entry.timestamp || new Date().toISOString()}`,
+    `Fecha: ${fechaLocal}`,
     `ID: ${entry.submissionId || 'n/a'}`,
     `Titulo: ${entry.title || 'Sin titulo'}`,
     `Autor: ${entry.author || 'Anónimo'}`,
@@ -111,6 +155,62 @@ function appendReadableProposal(entry) {
   ].join('\n');
 
   fs.appendFileSync(proposalReadableFile, `${block}\n`, 'utf8');
+}
+
+/**
+ * Regenera el archivo de propuestas legibles desde el JSONL.
+ * Se ejecuta al iniciar si el archivo está vacío o corrupto.
+ */
+function regenerateProposalReadableFile() {
+  try {
+    ensureProposalDataDir();
+    
+    if (!fs.existsSync(proposalInboxFile)) {
+      return;
+    }
+
+    const content = fs.readFileSync(proposalInboxFile, 'utf8');
+    const lines = content.split('\n').filter((line) => line.trim());
+    
+    if (lines.length === 0) {
+      return;
+    }
+
+    const proposals = lines.map((line) => {
+      try {
+        return JSON.parse(line);
+      } catch {
+        return null;
+      }
+    }).filter(Boolean);
+
+    if (proposals.length === 0) {
+      return;
+    }
+
+    // Reconstruir el archivo
+    let output = '=== PROPUESTAS RECIBIDAS ===\n\n';
+
+    for (const prop of proposals) {
+      output += '----------------------------------------\n';
+      output += `Fecha: ${formatDateSantiago(prop.timestamp || new Date().toISOString())}\n`;
+      output += `ID: ${prop.submissionId || 'N/A'}\n`;
+      output += `Titulo: ${prop.title || '(Sin titulo)'}\n`;
+      output += `Autor: ${prop.author || 'Anónimo'}\n`;
+      output += `Curso: ${prop.course || 'No especificado'}\n`;
+      output += `IP: ${(prop.requestMeta && prop.requestMeta.ip) || 'unknown'}\n`;
+      output += 'Estado: Enviado\n';
+      output += '\n';
+      output += 'Descripcion:\n';
+      output += `${String(prop.description || '').trim() || '(Sin descripcion)'}\n`;
+      output += '\n';
+    }
+
+    fs.writeFileSync(proposalReadableFile, output, 'utf8');
+    console.log(`✓ Propuestas regeneradas: ${proposals.length} entradas en ${proposalReadableFile}`);
+  } catch (error) {
+    console.error('❌ Error regenerando propuestas legibles:', error.message);
+  }
 }
 
 function readJsonlTail(filePath, limit = 20) {
@@ -1196,6 +1296,7 @@ app.listen(PORT, () => {
   ensureProposalQueueFile();
   ensureProposalInboxFile();
   ensureProposalReadableFile();
+  regenerateProposalReadableFile(); // Regenera desde JSONL si está vacío
   setInterval(processProposalQueue, 30000).unref();
   processProposalQueue().catch((error) => {
     console.error('Error al procesar cola inicial de propuestas:', error.message);
